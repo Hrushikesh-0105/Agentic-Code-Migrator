@@ -1,0 +1,42 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "pallets_itsdangerous",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "dummy",
+      "bundle": "layer0/20261008-210556-3repos/pallets_itsdangerous",
+      "units": {
+        "migrated": 81
+      },
+      "fragments": {
+        "migrated": 81
+      },
+      "counters": {
+        "invocations": 84,
+        "retries": 2,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 26,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-001912-pallets_itsdangerous/pallets_itsdangerous"
+    }
+  ]
+}

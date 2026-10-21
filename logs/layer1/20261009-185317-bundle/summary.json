@@ -1,0 +1,72 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "fixture",
+      "ok": true,
+      "regime": "python2->java",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer1/20261009-004018-verify/layer0/verify/verify/bundle",
+      "units": {
+        "escalated": 3,
+        "migrated": 2,
+        "out_of_scope": 13
+      },
+      "fragments": {
+        "escalated": 3,
+        "migrated": 3,
+        "out_of_scope": 13
+      },
+      "counters": {
+        "invocations": 11,
+        "retries": 6,
+        "invalid_verdicts": 0,
+        "escalated_units": 3,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 1,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-185317-bundle/bundle",
+      "scope": [
+        "pkg.util"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 1,
+        "units_compiled_only": 1,
+        "differential_tests": 16,
+        "tests_equivalent": 16,
+        "units_repaired": 0,
+        "llm_tokens": {
+          "analyzer": 14233,
+          "repair": 34383,
+          "testgen": 4943,
+          "translator": 21604,
+          "verdict": 19857
+        },
+        "llm_calls": {
+          "analyzer": 10,
+          "mcp": 90,
+          "repair": 13,
+          "testgen": 4,
+          "translator": 13,
+          "verdict": 14
+        },
+        "mcp_calls": 90
+      }
+    }
+  ]
+}

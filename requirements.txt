@@ -1,0 +1,11 @@
+# Python packages for Layer 1 (orchestration) and Layer 2 (agents, MCP). Needs Python 3.10+; tested on 3.14.
+# The sandbox, the analysis toolchain and the Layer 0 host code use only the standard library.
+#   python -m venv .venv
+#   .venv/Scripts/python -m pip install -r requirements.txt     (Windows; .venv/bin/python on Linux / macOS)
+langgraph==1.2.14
+langgraph-checkpoint==4.2.0
+langgraph-checkpoint-sqlite==3.1.1
+langchain-core==1.6.7
+pydantic==2.14.0
+# Layer 2: the official Model Context Protocol SDK (servers in layer2/servers/, client in layer2/mcp_client.py)
+mcp==2.3.0

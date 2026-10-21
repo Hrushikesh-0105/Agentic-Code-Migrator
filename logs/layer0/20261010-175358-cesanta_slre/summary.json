@@ -1,0 +1,44 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 5.1,
+  "repos": [
+    {
+      "repo": "cesanta_slre",
+      "ok": true,
+      "regime": "c->rust",
+      "source_root": ".",
+      "stats": {
+        "fragments": 22,
+        "by_kind": {
+          "function": 17,
+          "module_header": 4,
+          "module_init": 1
+        },
+        "edges": 43,
+        "steps": 21,
+        "waves": 11,
+        "cycles": 1,
+        "largest_cycle": 2,
+        "loc": 431,
+        "fragments_with_hazards": 14,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 1,
+          "in_cycle": 2,
+          "entrypoint": 2
+        },
+        "seconds": 0.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "22/22",
+        "call_recall": "22/23"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-175358-cesanta_slre/cesanta_slre"
+    }
+  ]
+}

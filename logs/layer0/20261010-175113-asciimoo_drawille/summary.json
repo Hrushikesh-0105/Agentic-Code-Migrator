@@ -1,0 +1,44 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 64.9,
+  "repos": [
+    {
+      "repo": "asciimoo_drawille",
+      "ok": true,
+      "regime": "python3->rust",
+      "source_root": ".",
+      "stats": {
+        "fragments": 48,
+        "by_kind": {
+          "class": 5,
+          "function": 7,
+          "method": 33,
+          "module_header": 2,
+          "module_init": 1
+        },
+        "edges": 154,
+        "steps": 48,
+        "waves": 7,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 375,
+        "fragments_with_hazards": 6,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 1,
+        "flags": {
+          "entrypoint": 1
+        },
+        "seconds": 56.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "63/63",
+        "call_recall": "29/29"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-175113-asciimoo_drawille/asciimoo_drawille"
+    }
+  ]
+}

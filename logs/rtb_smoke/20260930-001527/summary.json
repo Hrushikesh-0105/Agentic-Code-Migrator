@@ -1,0 +1,384 @@
+[
+  {
+    "project": "7ossam81_EvoloPy",
+    "green": true,
+    "counts": {
+      "passed": 78,
+      "skipped": 1
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/7ossam81_evolopy:py3-973c0e543943",
+    "build_log": "build/projects/7ossam81_evolopy-py3-973c0e543943.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/7ossam81_EvoloPy"
+  },
+  {
+    "project": "aadhithya_rajiniPP",
+    "green": false,
+    "counts": {
+      "error": 14
+    },
+    "returncode": 0,
+    "category": "tests fail",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/aadhithya_rajinipp:py3-596d879bd015",
+    "build_log": "build/projects/aadhithya_rajinipp-py3-596d879bd015.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/aadhithya_rajiniPP"
+  },
+  {
+    "project": "ai-forever_gigachat",
+    "green": false,
+    "counts": {},
+    "returncode": 127,
+    "category": "env: build tool missing",
+    "detail": "run_tests.sh: line 5: poetry: command not found\nrun_tests.sh: line 5: poetry: command not found\n",
+    "image": "acm-proj/ai-forever_gigachat:py3-794bf2c82857",
+    "build_log": "build/projects/ai-forever_gigachat-py3-794bf2c82857.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/ai-forever_gigachat"
+  },
+  {
+    "project": "alastair_python-musicbrainzngs",
+    "green": true,
+    "counts": {
+      "passed": 135
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/alastair_python-musicbrainzngs:py3-ca4a092b46b1",
+    "build_log": "build/projects/alastair_python-musicbrainzngs-py3-ca4a092b46b1.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/alastair_python-musicbrainzngs"
+  },
+  {
+    "project": "alingse_jsoncsv",
+    "green": true,
+    "counts": {
+      "passed": 41
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/alingse_jsoncsv:py3-fc8ea1085d69",
+    "build_log": "build/projects/alingse_jsoncsv-py3-fc8ea1085d69.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/alingse_jsoncsv"
+  },
+  {
+    "project": "andreroggeri_pynubank",
+    "green": false,
+    "counts": {
+      "passed": 291,
+      "failure": 1
+    },
+    "returncode": 1,
+    "category": "test needs network",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/andreroggeri_pynubank:py3-67b65c0da3ed",
+    "build_log": "build/projects/andreroggeri_pynubank-py3-67b65c0da3ed.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/andreroggeri_pynubank"
+  },
+  {
+    "project": "AndrewRPorter_yahoo-historical",
+    "green": true,
+    "counts": {
+      "passed": 20
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/andrewrporter_yahoo-historical:py3-1c1ca6905448",
+    "build_log": "build/projects/andrewrporter_yahoo-historical-py3-1c1ca6905448.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/AndrewRPorter_yahoo-historical"
+  },
+  {
+    "project": "angeloc_s3-pit-restore",
+    "green": true,
+    "counts": {
+      "passed": 3,
+      "skipped": 1
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/angeloc_s3-pit-restore:py3-90bba0f6928b",
+    "build_log": "build/projects/angeloc_s3-pit-restore-py3-90bba0f6928b.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/angeloc_s3-pit-restore"
+  },
+  {
+    "project": "antiboredom_audiogrep",
+    "green": false,
+    "counts": {
+      "passed": 11,
+      "failure": 2
+    },
+    "returncode": 1,
+    "category": "env: script installs at test time",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/antiboredom_audiogrep:py3-60b0c1c26ee0",
+    "build_log": "build/projects/antiboredom_audiogrep-py3-60b0c1c26ee0.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/antiboredom_audiogrep"
+  },
+  {
+    "project": "arthepsy_ssh-audit",
+    "green": true,
+    "counts": {
+      "passed": 72
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/arthepsy_ssh-audit:py3-5f01d30f2098",
+    "build_log": "build/projects/arthepsy_ssh-audit-py3-5f01d30f2098.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/arthepsy_ssh-audit"
+  },
+  {
+    "project": "asciimoo_drawille",
+    "green": true,
+    "counts": {
+      "passed": 24
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/asciimoo_drawille:py3-400d16ecb9d3",
+    "build_log": "build/projects/asciimoo_drawille-py3-400d16ecb9d3.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/asciimoo_drawille"
+  },
+  {
+    "project": "BBuf_onnx_learn",
+    "green": true,
+    "counts": {
+      "passed": 13
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/bbuf_onnx_learn:py3-42ec50d523fd",
+    "build_log": "build/projects/bbuf_onnx_learn-py3-42ec50d523fd.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/BBuf_onnx_learn"
+  },
+  {
+    "project": "bdarnell_plop",
+    "green": false,
+    "counts": {},
+    "returncode": 1,
+    "category": "env: script creates its own venv",
+    "detail": "packages/pip (python 3.11)\nERROR: Could not find a version that satisfies the requirement tornado (from versions: none)\nERROR: No matching distribution found for tornado\nERROR: Directory '..' is not installable. Neither 'setup.py' nor 'pyproject.toml' found.\nERROR: Could not find a version that satisfies the requirement pytest (from versions: none)\nERROR: No matching distribution found for pytest\n",
+    "image": "acm-proj/bdarnell_plop:py3-2c8217e4329a",
+    "build_log": "build/projects/bdarnell_plop-py3-2c8217e4329a.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/bdarnell_plop"
+  },
+  {
+    "project": "Bouke_docx-mailmerge",
+    "green": true,
+    "counts": {
+      "passed": 27
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/bouke_docx-mailmerge:py3-c73ef2bf1a0b",
+    "build_log": "build/projects/bouke_docx-mailmerge-py3-c73ef2bf1a0b.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/Bouke_docx-mailmerge"
+  },
+  {
+    "project": "clarkduvall_serpy",
+    "green": true,
+    "counts": {
+      "passed": 12
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/clarkduvall_serpy:py3-b3b40aa1985f",
+    "build_log": "build/projects/clarkduvall_serpy-py3-b3b40aa1985f.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/clarkduvall_serpy"
+  },
+  {
+    "project": "cloudconvert_cloudconvert-python",
+    "green": false,
+    "counts": {
+      "error": 1
+    },
+    "returncode": 2,
+    "category": "env: script creates its own venv",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/cloudconvert_cloudconvert-python:py3-fd805d4ddedb",
+    "build_log": "build/projects/cloudconvert_cloudconvert-python-py3-fd805d4ddedb.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/cloudconvert_cloudconvert-python"
+  },
+  {
+    "project": "djui_alias-tips",
+    "green": true,
+    "counts": {
+      "passed": 4
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/djui_alias-tips:py3-d09839dace45",
+    "build_log": "build/projects/djui_alias-tips-py3-d09839dace45.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/djui_alias-tips"
+  },
+  {
+    "project": "eatonphil_pj",
+    "green": true,
+    "counts": {
+      "passed": 42
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/eatonphil_pj:py3-c3ab95d3c101",
+    "build_log": "build/projects/eatonphil_pj-py3-c3ab95d3c101.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/eatonphil_pj"
+  },
+  {
+    "project": "ecmwf-lab_ai-models",
+    "green": false,
+    "counts": {
+      "error": 3
+    },
+    "returncode": 2,
+    "category": "env: missing dependency",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/ecmwf-lab_ai-models:py3-83f502d7604e",
+    "build_log": "build/projects/ecmwf-lab_ai-models-py3-83f502d7604e.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/ecmwf-lab_ai-models"
+  },
+  {
+    "project": "facebookarchive_sparts",
+    "green": false,
+    "counts": {
+      "error": 1
+    },
+    "returncode": 0,
+    "category": "env: missing dependency",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/facebookarchive_sparts:py3-62e324bb82e9",
+    "build_log": "build/projects/facebookarchive_sparts-py3-62e324bb82e9.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/facebookarchive_sparts"
+  },
+  {
+    "project": "fengsp_sender",
+    "green": true,
+    "counts": {
+      "passed": 25
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/fengsp_sender:py3-47c53dda0be5",
+    "build_log": "build/projects/fengsp_sender-py3-47c53dda0be5.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/fengsp_sender"
+  },
+  {
+    "project": "google_latexify_py",
+    "green": true,
+    "counts": {
+      "passed": 707
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/google_latexify_py:py3-a30afa20f738",
+    "build_log": "build/projects/google_latexify_py-py3-a30afa20f738.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/google_latexify_py"
+  },
+  {
+    "project": "GoogleCloudPlatform_localllm",
+    "green": false,
+    "counts": {
+      "error": 5
+    },
+    "returncode": 2,
+    "category": "env: missing dependency",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/googlecloudplatform_localllm:py3-2585c699d237",
+    "build_log": "build/projects/googlecloudplatform_localllm-py3-2585c699d237.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/GoogleCloudPlatform_localllm"
+  },
+  {
+    "project": "gregmalcolm_python_koans",
+    "green": true,
+    "counts": {
+      "passed": 36
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/gregmalcolm_python_koans:py3-d3619c89a35d",
+    "build_log": "build/projects/gregmalcolm_python_koans-py3-d3619c89a35d.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/gregmalcolm_python_koans"
+  },
+  {
+    "project": "hackebrot_pytest-tricks",
+    "green": true,
+    "counts": {
+      "passed": 62
+    },
+    "returncode": 0,
+    "category": null,
+    "detail": null,
+    "image": "acm-proj/hackebrot_pytest-tricks:py3-e7a60ec1be70",
+    "build_log": "build/projects/hackebrot_pytest-tricks-py3-e7a60ec1be70.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/hackebrot_pytest-tricks"
+  },
+  {
+    "project": "hugsy_cemu",
+    "green": false,
+    "counts": {
+      "error": 9
+    },
+    "returncode": 2,
+    "category": "env: script installs at test time",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/hugsy_cemu:py3-695f273eac45",
+    "build_log": "build/projects/hugsy_cemu-py3-695f273eac45.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/hugsy_cemu"
+  },
+  {
+    "project": "HuobiRDCenter_huobi_Python",
+    "green": false,
+    "category": "env: dependency install failed",
+    "detail": "iohttp` (v3.6.2) depends on `multidict`\n#7 12.37 hint: Build failures usually indicate a problem with the package or the build environment\n12.37          error: command 'gcc' failed: No such file or directory\n12.37 hint: `multidict` (v4.7.6) was included because `aiohttp` (v3.6.2) depends on `multidict`\n12.37 hint: Build failures usually indicate a problem with the package or the build environment",
+    "build_log": "build/projects/huobirdcenter_huobi_python-py3-7e804d119597.log"
+  },
+  {
+    "project": "initstring_linkedin2username",
+    "green": false,
+    "counts": {
+      "error": 3
+    },
+    "returncode": 0,
+    "category": "env: missing dependency",
+    "detail": "username.py             126    125      4      0     1%\ntests/test_linkedin2username_minimal.py      17     14      4      0    14%\ntests/test_namemutator.py                     6      4      2      0    25%\n---------------------------------------------------------------------------\nTOTAL                                       476    459    124      0     3%\nWrote HTML report to htmlcov/index.html\n",
+    "image": "acm-proj/initstring_linkedin2username:py3-75c57e9fdf41",
+    "build_log": "build/projects/initstring_linkedin2username-py3-75c57e9fdf41.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/initstring_linkedin2username"
+  },
+  {
+    "project": "jimmc414_onefilellm",
+    "green": false,
+    "counts": {
+      "error": 2
+    },
+    "returncode": 2,
+    "category": "env: missing dependency",
+    "detail": "lt to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "image": "acm-proj/jimmc414_onefilellm:py3-2604c105c686",
+    "build_log": "build/projects/jimmc414_onefilellm-py3-2604c105c686.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/jimmc414_onefilellm"
+  },
+  {
+    "project": "jmespath_jmespath.py",
+    "green": false,
+    "counts": {},
+    "returncode": 1,
+    "category": "tests fail",
+    "detail": "mport fixture, is_async_test\n  File \"/usr/local/lib/python3.11/site-packages/_pytest/assertion/rewrite.py\", line 170, in exec_module\n    exec(co, module.__dict__)\n  File \"/usr/local/lib/python3.11/site-packages/pytest_asyncio/plugin.py\", line 35, in <module>\n    from pytest import (\nImportError: cannot import name 'Config' from 'pytest' (/usr/local/lib/python3.11/site-packages/pytest/__init__.py)\n",
+    "image": "acm-proj/jmespath_jmespath.py:py3-6f74fab22e0f",
+    "build_log": "build/projects/jmespath_jmespath.py-py3-6f74fab22e0f.log",
+    "suite_log": "rtb_smoke/20260930-001527/projects/jmespath_jmespath.py"
+  }
+]

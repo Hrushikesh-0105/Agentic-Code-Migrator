@@ -1,0 +1,116 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 6.9,
+  "repos": [
+    {
+      "repo": "tonerdo_dotnet-env",
+      "ok": true,
+      "regime": "csharp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 115,
+        "by_kind": {
+          "class": 23,
+          "method": 78,
+          "module_header": 14
+        },
+        "edges": 324,
+        "steps": 102,
+        "waves": 11,
+        "cycles": 1,
+        "largest_cycle": 14,
+        "loc": 765,
+        "fragments_with_hazards": 33,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 14,
+          "oversized": 1
+        },
+        "seconds": 0.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "98/126",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161643-3repos/tonerdo_dotnet-env"
+    },
+    {
+      "repo": "davidfowl_Roslyn.Reflection",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 192,
+        "by_kind": {
+          "class": 12,
+          "method": 167,
+          "module_header": 12,
+          "module_init": 1
+        },
+        "edges": 614,
+        "steps": 148,
+        "waves": 4,
+        "cycles": 1,
+        "largest_cycle": 45,
+        "loc": 1372,
+        "fragments_with_hazards": 33,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 45
+        },
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "179/239",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161643-3repos/davidfowl_Roslyn.Reflection"
+    },
+    {
+      "repo": "mattbierner_Template-Assembly",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 1152,
+        "by_kind": {
+          "class": 73,
+          "function": 1046,
+          "method": 4,
+          "module_header": 17,
+          "module_init": 12
+        },
+        "edges": 4482,
+        "steps": 1150,
+        "waves": 7,
+        "cycles": 1,
+        "largest_cycle": 3,
+        "loc": 4851,
+        "fragments_with_hazards": 1100,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 3
+        },
+        "seconds": 2.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "3312/3329",
+        "call_recall": "853/853"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161643-3repos/mattbierner_Template-Assembly"
+    }
+  ]
+}

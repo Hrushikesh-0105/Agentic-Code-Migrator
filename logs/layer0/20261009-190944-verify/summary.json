@@ -1,0 +1,126 @@
+{
+  "kind": "verify",
+  "ok": true,
+  "fixture_checks": [
+    {
+      "check": "decompose: exactly the expected fragments (tests/ and scripts/ excluded, one header/init per module)",
+      "ok": true
+    },
+    {
+      "check": "decompose: class shell keeps attributes but not methods",
+      "ok": true
+    },
+    {
+      "check": "decompose: Python 2 source preserved verbatim (raise E, msg / print >> / iteritems)",
+      "ok": true
+    },
+    {
+      "check": "decompose: REGISTRY and the __main__ guard are module init, constants stay in the header",
+      "ok": true
+    },
+    {
+      "check": "graph: cross-module call Square.area -> util.double",
+      "ok": true
+    },
+    {
+      "check": "graph: inheritance Square -> Shape",
+      "ok": true
+    },
+    {
+      "check": "graph: self.area() resolved (Square.describe -> Square.area)",
+      "ok": true
+    },
+    {
+      "check": "graph: constructor found through inheritance (make -> Shape.__init__)",
+      "ok": true
+    },
+    {
+      "check": "graph: module constant (double -> util header via SCALE)",
+      "ok": true
+    },
+    {
+      "check": "graph: name bound in module init (lookup -> shapes init via REGISTRY)",
+      "ok": true
+    },
+    {
+      "check": "graph: recursion flagged only for exact self-calls (fact yes; super().__init__, is_even no)",
+      "ok": true
+    },
+    {
+      "check": "order: mutual recursion is_even/is_odd is one cycle step",
+      "ok": true
+    },
+    {
+      "check": "order: callee before caller, base before subclass, class before its methods",
+      "ok": true
+    },
+    {
+      "check": "order: make before module init before lookup",
+      "ok": true
+    },
+    {
+      "check": "metadata: 2to3/modernize hazards and py2-only import attached to the right fragments",
+      "ok": true
+    },
+    {
+      "check": "metadata: Java API expected by the tests, linked to fragments",
+      "ok": true
+    },
+    {
+      "check": "metadata: source language detected as python2",
+      "ok": true
+    }
+  ],
+  "contract_checks": [
+    {
+      "check": "bundle files present and format recognised",
+      "ok": true,
+      "detail": "acm-layer0-bundle 1.0"
+    },
+    {
+      "check": "fragment schema (keys, kinds, unique ids, parent/children)",
+      "ok": true,
+      "detail": "19 fragments"
+    },
+    {
+      "check": "source fidelity (segments are the original bytes)",
+      "ok": true,
+      "detail": "19 segments match the original files byte for byte"
+    },
+    {
+      "check": "annotations point inside their fragment; branch conditions at control-flow lines",
+      "ok": true,
+      "detail": "27 hazard/diagnostic/branch lines"
+    },
+    {
+      "check": "fragments are disjoint",
+      "ok": true,
+      "detail": "no line belongs to two fragments"
+    },
+    {
+      "check": "every code line is in a fragment",
+      "ok": true,
+      "detail": "47 code lines in 3 files, 100% covered"
+    },
+    {
+      "check": "dependency graph consistent with fragments",
+      "ok": true,
+      "detail": "34 edges"
+    },
+    {
+      "check": "migration order partitions the fragments",
+      "ok": true,
+      "detail": "16 steps"
+    },
+    {
+      "check": "every dependency is migrated before its dependents",
+      "ok": true,
+      "detail": "all 34 edges point to earlier steps (or within a cycle step)"
+    },
+    {
+      "check": "cycle steps are strongly connected; waves are minimal",
+      "ok": true,
+      "detail": "3 cycle steps, 6 waves"
+    }
+  ]
+}

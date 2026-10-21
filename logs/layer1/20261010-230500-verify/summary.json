@@ -1,0 +1,156 @@
+{
+  "kind": "verify",
+  "ok": true,
+  "checks": [
+    {
+      "check": "Layer 0 builds both fixture bundles",
+      "ok": true,
+      "detail": "Java target: 17 fixture + 10 contract checks; Python 3 target: contract 10/10"
+    },
+    {
+      "check": "all-pass: every unit migrated with one Layer 2 call each, in migration order",
+      "ok": true,
+      "detail": "16 units, 16 calls"
+    },
+    {
+      "check": "all-pass: the mutual-recursion cycle is sent as one unit",
+      "ok": true,
+      "detail": "step-0006: ['pkg.util.is_even', 'pkg.util.is_odd']"
+    },
+    {
+      "check": "all-pass: a request carries the already-migrated dependencies with their translations",
+      "ok": true,
+      "detail": "Square.area gets pkg.shapes.Square (member), pkg.shapes::header (module), pkg.util.double (call/reference/use), pkg.util::header (reference)"
+    },
+    {
+      "check": "all-pass: the composed Java codebase has the expected classes and compiles",
+      "ok": true,
+      "detail": "['Cube.java', 'PkgPackage.java', 'Shape.java', 'ShapesModule.java', 'Square.java', 'UtilModule.java']; javac (OpenJDK 17): ok"
+    },
+    {
+      "check": "all-pass: run contract",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "check": "python3-identity: the spliced codebase equals the original byte for byte",
+      "ok": true,
+      "detail": "3/3 files identical"
+    },
+    {
+      "check": "python3-identity: the build check flags exactly the echoed Python 2 file",
+      "ok": true,
+      "detail": "compile() (CPython 3.11): ['pkg/util.py:28: invalid syntax']"
+    },
+    {
+      "check": "python3-identity: run contract",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "check": "scripted: a failed attempt is retried with its feedback, then committed",
+      "ok": true,
+      "detail": "fact: migrated after 2 attempts; attempt-2 feedback: scripted failure: outputs differ on 1 generated test"
+    },
+    {
+      "check": "scripted: a malformed 'pass' and a Layer 2 exception count as failed attempts",
+      "ok": true,
+      "detail": "report: ['no translation for pkg.util.report']; make: ['Layer 2 raised RuntimeError: scripted exception at step-0013 attempt 1']"
+    },
+    {
+      "check": "scripted: retries are bounded at 3, then the unit is escalated; needs_human escalates at once",
+      "ok": true,
+      "detail": "double: 3 attempts (retries_exhausted); lookup: 1 (needs_human)"
+    },
+    {
+      "check": "scripted: exactly the transitive dependents of the escalated unit are blocked, and never sent",
+      "ok": true,
+      "detail": "blocked ['pkg.shapes.Square.area', 'pkg.shapes.Square.describe'], root cause ['pkg.util.double']"
+    },
+    {
+      "check": "scripted: Layer 2 call count and build",
+      "ok": true,
+      "detail": "19 calls = 14 units sent + 5 retries; javac ok without the blocked methods"
+    },
+    {
+      "check": "scripted: run contract",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "check": "hitl: a human retry with guidance gets a fresh budget and the unit migrates",
+      "ok": true,
+      "detail": "double: migrated at attempt 4, guidance passed: 'SCALE is an int: keep integer arithmetic'"
+    },
+    {
+      "check": "hitl: an invalid human translation is refused and asked again; a valid one is committed",
+      "ok": true,
+      "detail": "lookup: migrated by human; re-asked with: [\"pkg.shapes.lookup: unsafe target_file '../Lookup.java'\"]"
+    },
+    {
+      "check": "hitl: three pauses, nothing escalated or blocked",
+      "ok": true,
+      "detail": "3 interrupts; units {'migrated': 16}"
+    },
+    {
+      "check": "hitl: run contract",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "check": "resume: the crash stops the run with its checkpoint kept",
+      "ok": true,
+      "detail": "crashed at pkg.shapes.Square.area after 11 Layer 2 calls"
+    },
+    {
+      "check": "resume: continues at the crashed unit, redoes nothing, ends exactly like an uninterrupted run",
+      "ok": true,
+      "detail": "resumed with 6 calls (steps 11..16); identical: {'state.json': True, 'translations.jsonl': True}, migrated/ identical"
+    },
+    {
+      "check": "resume: run contract",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "check": "determinism: a second run gives identical state, translations, requests and codebase",
+      "ok": true,
+      "detail": "16 requests compared"
+    },
+    {
+      "check": "bundle gate: a bundle whose fragment differs from the source is refused before Layer 2",
+      "ok": true,
+      "detail": "source fidelity (segments are the original bytes): pkg.util.fact: source differs from the original file"
+    },
+    {
+      "check": "run contract detects planted violations (unblocked dependent, changed code, lost feedback)",
+      "ok": true,
+      "detail": "2 failed: ['blocking is exact; blocked, vendored and out-of-scope units are never sent', 'committed translations come from passing verdicts or human accepts']; 2 failed: ['committed translations come from passing verdicts or human accepts', 'migrated codebase contains every committed translation']; 1 failed: [\"requests carry the unit's fragments, its migrated dependencies and earlier feedback\"]"
+    },
+    {
+      "check": "llm: each escalation gets a brief, shown to the human and saved outside the state",
+      "ok": true,
+      "detail": "3 prompts carried the brief; units/<unit>/brief.json source: ['llm', 'llm']"
+    },
+    {
+      "check": "llm: invented numbers and identifiers are rejected, retried once, then replaced by the template",
+      "ok": true,
+      "detail": "retry fixed it: llm; still invented: template (['`pkg.util.triple` does not appear in the facts', 'the number 999 does not appear in the facts']); a narrow no-break space is normalised"
+    },
+    {
+      "check": "llm: a failing provider hands over to the next; one with a billing/key error is not asked again",
+      "ok": true,
+      "detail": "answered by fake; calls: unpaid 1 (dropped after HTTP 402), busy 2 (HTTP 503, kept); note: unpaid failed (unpaid HTTP 402: credits depleted); busy failed (busy HTTP 503: overloaded)"
+    },
+    {
+      "check": "llm: live summary of the all-pass run (grounded or safely replaced), no key ever logged",
+      "ok": true,
+      "detail": "providers: groq openai/gpt-oss-20b (llama-3.1-8b-instant is not usable with this groq key; used openai/gpt-oss-20b); gemini skipped: gemini HTTP 402: Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at ht. Result: groq openai/gpt-oss-20b, llm after 2 call(s); 2 key(s) scanned for"
+    },
+    {
+      "check": "committed JSON schemas match the protocol models",
+      "ok": true,
+      "detail": "layer1/schemas/translation_request.json, layer1/schemas/verdict.json"
+    }
+  ]
+}

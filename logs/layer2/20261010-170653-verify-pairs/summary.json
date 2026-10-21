@@ -1,0 +1,29 @@
+{
+  "kind": "verify-pairs",
+  "ok": false,
+  "pairs": [
+    "python3->rust"
+  ],
+  "checks": [
+    {
+      "check": "Layer 0 builds every fixture bundle",
+      "ok": true,
+      "detail": "python3_to_rust: 5 fragments"
+    },
+    {
+      "check": "python3 -> rust: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": false,
+      "detail": "units {'blocked': 2, 'escalated': 1, 'migrated': 2}; build ok (rust); tests 6/6 equivalent over ['fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "python3 -> rust: the planted bug in safe_div is caught (inequivalent) and repaired",
+      "ok": true,
+      "detail": "1/3 differential tests differ, e.g. safe_div(-7, 2): legacy returns -4, translation returns -3; then pass: 3/3 differential tests equivalent (cross:python3->rust)"
+    },
+    {
+      "check": "all pairs: differential tests across languages",
+      "ok": true,
+      "detail": "6/6 equivalent over 1 pairs"
+    }
+  ]
+}

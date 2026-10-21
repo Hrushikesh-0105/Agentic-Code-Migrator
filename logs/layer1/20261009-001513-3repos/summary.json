@@ -1,0 +1,116 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "jmespath_jmespath.py",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "dummy",
+      "bundle": "layer0/20261008-210556-3repos/jmespath_jmespath.py",
+      "units": {
+        "migrated": 206
+      },
+      "fragments": {
+        "migrated": 206
+      },
+      "counters": {
+        "invocations": 206,
+        "retries": 0,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 27,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-001513-3repos/jmespath_jmespath.py"
+    },
+    {
+      "repo": "pallets_itsdangerous",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "dummy",
+      "bundle": "layer0/20261008-210556-3repos/pallets_itsdangerous",
+      "units": {
+        "migrated": 81
+      },
+      "fragments": {
+        "migrated": 81
+      },
+      "counters": {
+        "invocations": 81,
+        "retries": 0,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 26,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-001513-3repos/pallets_itsdangerous"
+    },
+    {
+      "repo": "pavlov99_json-rpc",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "dummy",
+      "bundle": "layer0/20261008-210556-3repos/pavlov99_json-rpc",
+      "units": {
+        "migrated": 121,
+        "vendored": 45
+      },
+      "fragments": {
+        "migrated": 121,
+        "vendored": 45
+      },
+      "counters": {
+        "invocations": 121,
+        "retries": 0,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 45
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 36,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-001513-3repos/pavlov99_json-rpc"
+    }
+  ]
+}

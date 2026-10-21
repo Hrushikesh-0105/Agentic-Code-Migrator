@@ -1,0 +1,7 @@
+{"case_id": "avg-1", "module": "calc", "callable": "average", "args": [[1, 2, 3, 4]]}
+{"case_id": "avg-empty", "module": "calc", "callable": "average", "args": [[]]}
+{"case_id": "shout-1", "module": "calc", "callable": "shout", "args": ["hi"]}
+{"case_id": "evens-1", "module": "calc", "callable": "evens", "args": [[1, 2, 3, 4]]}
+{"case_id": "mutate-1", "module": "calc", "callable": "append_twice", "args": [[1], 9]}
+{"case_id": "counter-1", "module": "calc", "callable": "Counter.bump", "init": {"args": [10]}, "kwargs": {"by": 5}}
+{"case_id": "spin-1", "module": "calc", "callable": "spin"}

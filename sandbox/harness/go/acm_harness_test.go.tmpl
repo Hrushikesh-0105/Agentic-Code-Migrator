@@ -1,0 +1,575 @@
+// Go side of the differential harness (see sandbox/polyglot.py). Written into the package under test as a _test.go
+// file, so it can reach unexported identifiers; compiled once with `go test -c`, then run once per case:
+//     ./pkg.test -test.run '^TestAcmHarness$'   with ACM_CASES=<file of JSON cases> ACM_CASE=<index>
+// It decodes the case's type-tagged arguments into the Go parameter types by reflection, calls the function (or the
+// method on a receiver made by its constructor), and prints SENTINEL + the result in runner.py's tagged format.
+// A function returning (..., error) with a non-nil error is an exception (type = the error's dynamic type);
+// so is a panic.
+package {{PKG}}
+
+import (
+	"bufio"
+	"bytes"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"io"
+	"math"
+	"math/big"
+	"os"
+	"reflect"
+	"runtime/debug"
+	"sort"
+	"strconv"
+	"strings"
+	"testing"
+)
+
+var acmRegistry = map[string]any{
+{{REGISTRY}}
+}
+
+const acmSentinel = "__HARNESS_RESULT__"
+
+type acmCall struct {
+	Kind   string            `json:"kind"`
+	Member string            `json:"member"`
+	Class  string            `json:"class"`
+	Ctor   string            `json:"constructor"`
+	Args   []json.RawMessage `json:"args"`
+	Init   []json.RawMessage `json:"init"`
+}
+
+type acmCase struct {
+	CaseID any     `json:"case_id"`
+	Call   acmCall `json:"call"`
+}
+
+func acmTag(t string, v any) map[string]any {
+	if v == nil && t == "none" {
+		return map[string]any{"t": "none"}
+	}
+	return map[string]any{"t": t, "v": v}
+}
+
+var errorType = reflect.TypeOf((*error)(nil)).Elem()
+
+func acmEnc(v reflect.Value, depth int) map[string]any {
+	if depth > 40 || !v.IsValid() {
+		if !v.IsValid() {
+			return acmTag("none", nil)
+		}
+		return acmTag("repr", fmt.Sprint(v))
+	}
+	switch v.Kind() {
+	case reflect.Bool:
+		return acmTag("bool", v.Bool())
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		return acmTag("int", strconv.FormatInt(v.Int(), 10))
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
+		return acmTag("int", strconv.FormatUint(v.Uint(), 10))
+	case reflect.Float32, reflect.Float64:
+		f := v.Float()
+		if math.IsNaN(f) {
+			return acmTag("float", "nan")
+		}
+		if math.IsInf(f, 0) {
+			if f > 0 {
+				return acmTag("float", "inf")
+			}
+			return acmTag("float", "-inf")
+		}
+		return acmTag("float", f)
+	case reflect.String:
+		return acmTag("text", v.String())
+	case reflect.Slice, reflect.Array:
+		if v.Kind() == reflect.Slice && v.IsNil() {
+			return acmTag("none", nil)
+		}
+		if v.Type().Elem().Kind() == reflect.Uint8 {
+			b := make([]byte, v.Len())
+			for i := range b {
+				b[i] = byte(v.Index(i).Uint())
+			}
+			return acmTag("bytes", base64.StdEncoding.EncodeToString(b))
+		}
+		if v.Type().Elem().Kind() == reflect.Int32 && v.Type().Elem().Name() == "rune" {
+			rs := make([]rune, v.Len())
+			for i := range rs {
+				rs[i] = rune(v.Index(i).Int())
+			}
+			return acmTag("text", string(rs))
+		}
+		items := []any{}
+		for i := 0; i < v.Len() && i < 10000; i++ {
+			items = append(items, acmEnc(v.Index(i), depth+1))
+		}
+		return acmTag("list", items)
+	case reflect.Map:
+		if v.IsNil() {
+			return acmTag("none", nil)
+		}
+		if v.Type().Elem().Kind() == reflect.Bool || v.Type().Elem().Kind() == reflect.Struct && v.Type().Elem().NumField() == 0 {
+			items := []any{}
+			for _, k := range v.MapKeys() {
+				if v.Type().Elem().Kind() != reflect.Bool || v.MapIndex(k).Bool() {
+					items = append(items, acmEnc(k, depth+1))
+				}
+			}
+			return acmTag("set", items)
+		}
+		pairs := []any{}
+		keys := v.MapKeys()
+		sort.Slice(keys, func(i, j int) bool { return fmt.Sprint(keys[i]) < fmt.Sprint(keys[j]) })
+		for _, k := range keys {
+			pairs = append(pairs, []any{acmEnc(k, depth+1), acmEnc(v.MapIndex(k), depth+1)})
+		}
+		return acmTag("dict", pairs)
+	case reflect.Pointer:
+		if v.IsNil() {
+			return acmTag("none", nil)
+		}
+		if bi, ok := v.Interface().(*big.Int); ok && v.CanInterface() {
+			return acmTag("int", bi.String())
+		}
+		return acmEnc(v.Elem(), depth+1)
+	case reflect.Interface:
+		if v.IsNil() {
+			return acmTag("none", nil)
+		}
+		return acmEnc(v.Elem(), depth+1)
+	case reflect.Struct:
+		if v.Type().PkgPath() == "math/big" {
+			return acmTag("repr", fmt.Sprint(v))
+		}
+		fields := []any{}
+		for i := 0; i < v.NumField(); i++ {
+			f := v.Type().Field(i)
+			fields = append(fields, []any{acmTag("text", f.Name), acmEnc(v.Field(i), depth+1)})
+		}
+		return map[string]any{"t": "object", "class": v.Type().Name(), "v": acmTag("dict", fields)}
+	}
+	return acmTag("repr", fmt.Sprint(v))
+}
+
+// acmDecode: tagged JSON -> a value of type t
+func acmDecode(raw json.RawMessage, t reflect.Type) (reflect.Value, error) {
+	var tagged map[string]json.RawMessage
+	if err := json.Unmarshal(raw, &tagged); err != nil {
+		return reflect.Value{}, fmt.Errorf("argument is not a tagged value: %s", raw)
+	}
+	var tag string
+	json.Unmarshal(tagged["t"], &tag)
+	val := tagged["v"]
+	out := reflect.New(t).Elem()
+	if tag == "none" {
+		switch t.Kind() {
+		case reflect.Pointer, reflect.Interface, reflect.Slice, reflect.Map, reflect.Func:
+			return out, nil
+		}
+		return out, fmt.Errorf("None for a %s parameter", t)
+	}
+	if t.Kind() == reflect.Pointer && !(t.Elem().PkgPath() == "math/big") {
+		inner, err := acmDecode(raw, t.Elem())
+		if err != nil {
+			return out, err
+		}
+		p := reflect.New(t.Elem())
+		p.Elem().Set(inner)
+		return p, nil
+	}
+	if t.Kind() == reflect.Interface {
+		return acmNatural(tag, val)
+	}
+	switch tag {
+	case "bool":
+		var b bool
+		json.Unmarshal(val, &b)
+		if t.Kind() != reflect.Bool {
+			return out, fmt.Errorf("bool for a %s parameter", t)
+		}
+		out.SetBool(b)
+	case "int":
+		var s string
+		json.Unmarshal(val, &s)
+		switch t.Kind() {
+		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+			n, err := strconv.ParseInt(s, 10, t.Bits())
+			if err != nil {
+				return out, fmt.Errorf("%s does not fit %s", s, t)
+			}
+			out.SetInt(n)
+		case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+			n, err := strconv.ParseUint(s, 10, t.Bits())
+			if err != nil {
+				return out, fmt.Errorf("%s does not fit %s", s, t)
+			}
+			out.SetUint(n)
+		case reflect.Float32, reflect.Float64:
+			f, _ := strconv.ParseFloat(s, 64)
+			out.SetFloat(f)
+		default:
+			if t == reflect.TypeOf(big.Int{}) {
+				b, _ := new(big.Int).SetString(s, 10)
+				out.Set(reflect.ValueOf(*b))
+				return out, nil
+			}
+			if t == reflect.TypeOf(&big.Int{}) {
+				b, _ := new(big.Int).SetString(s, 10)
+				return reflect.ValueOf(b), nil
+			}
+			return out, fmt.Errorf("int for a %s parameter", t)
+		}
+	case "float":
+		var f float64
+		if err := json.Unmarshal(val, &f); err != nil {
+			var s string
+			json.Unmarshal(val, &s)
+			f, _ = strconv.ParseFloat(strings.Replace(s, "inf", "Inf", 1), 64)
+		}
+		if t.Kind() != reflect.Float32 && t.Kind() != reflect.Float64 {
+			return out, fmt.Errorf("float for a %s parameter", t)
+		}
+		out.SetFloat(f)
+	case "text", "str":
+		var s string
+		json.Unmarshal(val, &s)
+		if t.Kind() == reflect.String {
+			out.SetString(s)
+		} else if t.Kind() == reflect.Slice && t.Elem().Kind() == reflect.Int32 {
+			out.Set(reflect.ValueOf([]rune(s)).Convert(t))
+		} else if t.Kind() == reflect.Int32 && len([]rune(s)) == 1 {
+			out.SetInt(int64([]rune(s)[0]))
+		} else {
+			return out, fmt.Errorf("text for a %s parameter", t)
+		}
+	case "bytes":
+		var s string
+		json.Unmarshal(val, &s)
+		b, _ := base64.StdEncoding.DecodeString(s)
+		if t.Kind() == reflect.Slice && t.Elem().Kind() == reflect.Uint8 {
+			out.SetBytes(b)
+		} else if t.Kind() == reflect.String && tag == "str" {
+			out.SetString(string(b))
+		} else {
+			return out, fmt.Errorf("bytes for a %s parameter", t)
+		}
+	case "list", "tuple":
+		var items []json.RawMessage
+		json.Unmarshal(val, &items)
+		switch t.Kind() {
+		case reflect.Slice:
+			s := reflect.MakeSlice(t, 0, len(items))
+			for _, it := range items {
+				e, err := acmDecode(it, t.Elem())
+				if err != nil {
+					return out, err
+				}
+				s = reflect.Append(s, e)
+			}
+			out.Set(s)
+		case reflect.Array:
+			if len(items) != t.Len() {
+				return out, fmt.Errorf("%d items for %s", len(items), t)
+			}
+			for i, it := range items {
+				e, err := acmDecode(it, t.Elem())
+				if err != nil {
+					return out, err
+				}
+				out.Index(i).Set(e)
+			}
+		default:
+			return out, fmt.Errorf("list for a %s parameter", t)
+		}
+	case "set":
+		var items []json.RawMessage
+		json.Unmarshal(val, &items)
+		if t.Kind() == reflect.Map {
+			m := reflect.MakeMap(t)
+			for _, it := range items {
+				k, err := acmDecode(it, t.Key())
+				if err != nil {
+					return out, err
+				}
+				present := reflect.New(t.Elem()).Elem()
+				if t.Elem().Kind() == reflect.Bool {
+					present.SetBool(true)
+				}
+				m.SetMapIndex(k, present)
+			}
+			out.Set(m)
+		} else if t.Kind() == reflect.Slice {
+			return acmDecode(json.RawMessage(`{"t":"list","v":`+string(val)+`}`), t)
+		} else {
+			return out, fmt.Errorf("set for a %s parameter", t)
+		}
+	case "dict":
+		var pairs [][2]json.RawMessage
+		json.Unmarshal(val, &pairs)
+		if t.Kind() != reflect.Map {
+			return out, fmt.Errorf("dict for a %s parameter", t)
+		}
+		m := reflect.MakeMap(t)
+		for _, p := range pairs {
+			k, err := acmDecode(p[0], t.Key())
+			if err != nil {
+				return out, err
+			}
+			v, err := acmDecode(p[1], t.Elem())
+			if err != nil {
+				return out, err
+			}
+			m.SetMapIndex(k, v)
+		}
+		out.Set(m)
+	default:
+		return out, fmt.Errorf("cannot decode %q", tag)
+	}
+	return out, nil
+}
+
+// acmNatural: a tagged value for an `any` parameter
+func acmNatural(tag string, val json.RawMessage) (reflect.Value, error) {
+	var x any
+	switch tag {
+	case "int":
+		var s string
+		json.Unmarshal(val, &s)
+		if n, err := strconv.ParseInt(s, 10, 64); err == nil {
+			x = int(n)
+		} else {
+			b, _ := new(big.Int).SetString(s, 10)
+			x = b
+		}
+	case "float":
+		var f float64
+		json.Unmarshal(val, &f)
+		x = f
+	case "bool":
+		var b bool
+		json.Unmarshal(val, &b)
+		x = b
+	case "text", "str":
+		var s string
+		json.Unmarshal(val, &s)
+		x = s
+	case "bytes":
+		var s string
+		json.Unmarshal(val, &s)
+		b, _ := base64.StdEncoding.DecodeString(s)
+		x = b
+	case "list", "tuple", "set":
+		var items []json.RawMessage
+		json.Unmarshal(val, &items)
+		l := []any{}
+		for _, it := range items {
+			v, err := acmDecode(it, reflect.TypeOf((*any)(nil)).Elem())
+			if err != nil {
+				return reflect.Value{}, err
+			}
+			l = append(l, v.Interface())
+		}
+		x = l
+	case "dict":
+		var pairs [][2]json.RawMessage
+		json.Unmarshal(val, &pairs)
+		m := map[string]any{}
+		for _, p := range pairs {
+			var kt map[string]any
+			json.Unmarshal(p[0], &kt)
+			v, err := acmDecode(p[1], reflect.TypeOf((*any)(nil)).Elem())
+			if err != nil {
+				return reflect.Value{}, err
+			}
+			m[fmt.Sprint(kt["v"])] = v.Interface()
+		}
+		x = m
+	default:
+		return reflect.Value{}, fmt.Errorf("cannot decode %q", tag)
+	}
+	v := reflect.New(reflect.TypeOf((*any)(nil)).Elem()).Elem()
+	v.Set(reflect.ValueOf(x))
+	return v, nil
+}
+
+func acmBind(fn reflect.Value, args []json.RawMessage, skip int) ([]reflect.Value, error) {
+	ft := fn.Type()
+	n := ft.NumIn() - skip
+	if ft.IsVariadic() {
+		if len(args) < n-1 {
+			return nil, fmt.Errorf("needs at least %d arguments, got %d", n-1, len(args))
+		}
+	} else if len(args) != n {
+		return nil, fmt.Errorf("takes %d arguments, got %d", n, len(args))
+	}
+	out := []reflect.Value{}
+	for i, a := range args {
+		var t reflect.Type
+		if ft.IsVariadic() && i >= n-1 {
+			t = ft.In(ft.NumIn() - 1).Elem()
+		} else {
+			t = ft.In(i + skip)
+		}
+		v, err := acmDecode(a, t)
+		if err != nil {
+			return nil, fmt.Errorf("argument %d: %v", i+1, err)
+		}
+		out = append(out, v)
+	}
+	return out, nil
+}
+
+type acmUnresolved struct{ msg string }
+
+func acmLookup(name string) (reflect.Value, error) {
+	f, ok := acmRegistry[name]
+	if !ok {
+		return reflect.Value{}, acmUnresolved{fmt.Sprintf("%s is not defined (or not exported to the harness)", name)}
+	}
+	return reflect.ValueOf(f), nil
+}
+
+func (u acmUnresolved) Error() string { return u.msg }
+
+func acmRun(c acmCase) (res map[string]any) {
+	res = map[string]any{"case_id": c.CaseID, "go": strings.TrimPrefix(runtimeVersion(), "go")}
+	var call []reflect.Value
+	var recv reflect.Value
+	var bound []reflect.Value
+	defer func() {
+		if r := recover(); r != nil {
+			if u, ok := r.(acmUnresolved); ok {
+				res["status"], res["message"] = "unresolved", u.msg
+				return
+			}
+			res["status"] = "exception"
+			res["exception"] = map[string]any{"type": "panic", "hierarchy": []string{"panic", "error"},
+				"message": fmt.Sprint(r), "traceback": string(debug.Stack())}
+		}
+		res["args_after"] = acmEncAll(bound)
+		if recv.IsValid() {
+			res["self_after"] = acmEnc(recv, 0)
+		} else {
+			res["self_after"] = nil
+		}
+	}()
+	switch c.Call.Kind {
+	case "method", "property":
+		ctor, err := acmLookup(c.Call.Ctor)
+		if err != nil {
+			panic(err)
+		}
+		cargs, err := acmBind(ctor, c.Call.Init, 0)
+		if err != nil {
+			panic(acmUnresolved{"constructor " + c.Call.Ctor + ": " + err.Error()})
+		}
+		outs := ctor.Call(cargs)
+		if len(outs) == 2 && outs[1].Type().Implements(errorType) && !outs[1].IsNil() {
+			panic(acmUnresolved{"constructor " + c.Call.Ctor + " failed: " + fmt.Sprint(outs[1].Interface())})
+		}
+		recv = outs[0]
+		m, err := acmLookup(c.Call.Class + "." + c.Call.Member)
+		if err != nil {
+			panic(err)
+		}
+		if recv.Kind() != reflect.Pointer && m.Type().In(0).Kind() == reflect.Pointer {
+			p := reflect.New(recv.Type())
+			p.Elem().Set(recv)
+			recv = p
+		}
+		args, err := acmBind(m, c.Call.Args, 1)
+		if err != nil {
+			panic(acmUnresolved{c.Call.Class + "." + c.Call.Member + ": " + err.Error()})
+		}
+		bound = args
+		r := recv
+		if m.Type().In(0).Kind() != reflect.Pointer && r.Kind() == reflect.Pointer {
+			r = r.Elem()
+		}
+		call = m.Call(append([]reflect.Value{r}, args...))
+	default:
+		name := c.Call.Member
+		if c.Call.Kind == "constructor" && c.Call.Ctor != "" {
+			name = c.Call.Ctor
+		}
+		f, err := acmLookup(name)
+		if err != nil {
+			panic(err)
+		}
+		args, err := acmBind(f, c.Call.Args, 0)
+		if err != nil {
+			panic(acmUnresolved{name + ": " + err.Error()})
+		}
+		bound = args
+		call = f.Call(args)
+	}
+	if n := len(call); n > 0 && call[n-1].Type().Implements(errorType) {
+		if !call[n-1].IsNil() {
+			e := call[n-1].Interface().(error)
+			res["status"] = "exception"
+			res["exception"] = map[string]any{"type": fmt.Sprintf("%T", e), "hierarchy": []string{fmt.Sprintf("%T", e), "error"},
+				"message": e.Error()}
+			return res
+		}
+		call = call[:n-1]
+	}
+	res["status"] = "ok"
+	switch len(call) {
+	case 0:
+		res["value"] = acmTag("none", nil)
+	case 1:
+		res["value"] = acmEnc(call[0], 0)
+	default:
+		res["value"] = acmTag("tuple", acmEncAll(call))
+	}
+	return res
+}
+
+func acmEncAll(vs []reflect.Value) []any {
+	out := []any{}
+	for _, v := range vs {
+		out = append(out, acmEnc(v, 0))
+	}
+	return out
+}
+
+func runtimeVersion() string {
+	if bi, ok := debug.ReadBuildInfo(); ok {
+		return bi.GoVersion
+	}
+	return "go"
+}
+
+func TestAcmHarness(t *testing.T) {
+	data, err := os.ReadFile(os.Getenv("ACM_CASES"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var cases []acmCase
+	sc := bufio.NewScanner(bytes.NewReader(data))
+	sc.Buffer(make([]byte, 1<<20), 1<<26)
+	for sc.Scan() {
+		if strings.TrimSpace(sc.Text()) == "" {
+			continue
+		}
+		var c acmCase
+		if err := json.Unmarshal(sc.Bytes(), &c); err != nil {
+			t.Fatal(err)
+		}
+		cases = append(cases, c)
+	}
+	i, _ := strconv.Atoi(os.Getenv("ACM_CASE"))
+	real := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+	done := make(chan string)
+	go func() { b, _ := io.ReadAll(r); done <- string(b) }()
+	res := acmRun(cases[i])
+	w.Close()
+	os.Stdout = real
+	res["stdout"] = <-done
+	res["stderr"] = ""
+	out, _ := json.Marshal(res)
+	fmt.Fprintln(real, acmSentinel+string(out))
+}

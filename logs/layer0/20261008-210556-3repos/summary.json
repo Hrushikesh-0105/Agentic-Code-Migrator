@@ -1,0 +1,115 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 100.2,
+  "repos": [
+    {
+      "repo": "pavlov99_json-rpc",
+      "ok": true,
+      "regime": "python3->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 166,
+        "by_kind": {
+          "class": 37,
+          "function": 27,
+          "method": 86,
+          "module_header": 12,
+          "module_init": 4
+        },
+        "edges": 397,
+        "steps": 166,
+        "waves": 13,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 1450,
+        "fragments_with_hazards": 21,
+        "fragments_with_target_hints": 6,
+        "unconfirmed_edges_dropped": 24,
+        "flags": {
+          "vendored": 45,
+          "oversized": 1
+        },
+        "seconds": 36.8
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "128/128",
+        "call_recall": "38/38"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261008-210556-3repos/pavlov99_json-rpc"
+    },
+    {
+      "repo": "pallets_itsdangerous",
+      "ok": true,
+      "regime": "python3->java",
+      "source_root": "src",
+      "stats": {
+        "fragments": 81,
+        "by_kind": {
+          "class": 18,
+          "function": 9,
+          "method": 46,
+          "module_header": 8
+        },
+        "edges": 231,
+        "steps": 81,
+        "waves": 11,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 953,
+        "fragments_with_hazards": 7,
+        "fragments_with_target_hints": 30,
+        "unconfirmed_edges_dropped": 13,
+        "flags": {},
+        "seconds": 16.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "104/104",
+        "call_recall": "35/35"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261008-210556-3repos/pallets_itsdangerous"
+    },
+    {
+      "repo": "jmespath_jmespath.py",
+      "ok": true,
+      "regime": "python3->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 206,
+        "by_kind": {
+          "class": 19,
+          "function": 32,
+          "method": 148,
+          "module_header": 7
+        },
+        "edges": 643,
+        "steps": 206,
+        "waves": 12,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 1411,
+        "fragments_with_hazards": 10,
+        "fragments_with_target_hints": 29,
+        "unconfirmed_edges_dropped": 14,
+        "flags": {
+          "recursive": 1
+        },
+        "seconds": 43.7
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "272/272",
+        "call_recall": "41/41"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261008-210556-3repos/jmespath_jmespath.py"
+    }
+  ]
+}

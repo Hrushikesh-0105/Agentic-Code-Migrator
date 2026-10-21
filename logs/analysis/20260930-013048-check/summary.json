@@ -1,0 +1,195 @@
+{
+  "image": "acm-sandbox/analysis",
+  "sample": "alingse_jsoncsv",
+  "tools": [
+    {
+      "tool": "fissix",
+      "version": "24.4.24",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "files_with_hits": 2,
+        "fixers_fired": [
+          "fix_dict",
+          "fix_future",
+          "fix_map",
+          "fix_unicode",
+          "fix_xrange"
+        ],
+        "parse_errors": 0
+      }
+    },
+    {
+      "tool": "grimp",
+      "version": "3.17",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "external_imports": [
+          "__future__",
+          "click",
+          "copy",
+          "itertools",
+          "json",
+          "operator",
+          "sys",
+          "unicodecsv",
+          "xlwt"
+        ],
+        "internal_imports": 5,
+        "modules": 5
+      }
+    },
+    {
+      "tool": "jarviscg",
+      "version": "0.1.0rc7",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "edges": 85,
+        "external_targets": 35,
+        "internal_edges": 32,
+        "nodes": 76
+      }
+    },
+    {
+      "tool": "libcst",
+      "version": "1.9.0",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "classes": 5,
+        "files_failed": 0,
+        "functions": 14,
+        "internal_calls": 54,
+        "methods": 20
+      }
+    },
+    {
+      "tool": "lizard",
+      "version": "1.24.0",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "java_functions": 67,
+        "max_ccn": "decode_safe_key( key , separator )=9",
+        "python_functions": 34,
+        "python_nloc": 251
+      }
+    },
+    {
+      "tool": "modernize",
+      "version": "0.8.0",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "files_with_hits": 4,
+        "fixers_fired": [
+          "fix_dict_six",
+          "fix_import",
+          "fix_map",
+          "fix_unicode_future",
+          "fix_unicode_type",
+          "fix_xrange_six",
+          "fix_zip"
+        ],
+        "parse_errors": 0
+      }
+    },
+    {
+      "tool": "networkx",
+      "version": "3.7",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "cycles": 0,
+        "edges": 30,
+        "steps": 34,
+        "units": 34
+      }
+    },
+    {
+      "tool": "pyan3",
+      "version": "2.8.1",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "defines_edges": 49,
+        "internal_uses_edges": 56,
+        "nodes": 251,
+        "uses_edges": 228
+      }
+    },
+    {
+      "tool": "pyright",
+      "version": "1.1.414",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "by_rule": {
+          "reportAttributeAccessIssue": 1,
+          "reportCallIssue": 3,
+          "reportIncompatibleMethodOverride": 3,
+          "reportMissingImports": 3,
+          "reportOptionalMemberAccess": 1,
+          "reportUndefinedVariable": 1
+        },
+        "diagnostics": 12,
+        "inferred_returns": 26
+      }
+    },
+    {
+      "tool": "radon",
+      "version": "6.0.1",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "loc": 447,
+        "min_mi": [
+          49.93,
+          "jsoncsv/dumptool.py"
+        ],
+        "sloc": 324
+      }
+    },
+    {
+      "tool": "staticfg",
+      "version": "0.9.5",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "branch_conditions": 80,
+        "failed": 0,
+        "functions": 34
+      }
+    },
+    {
+      "tool": "stdlib_list",
+      "version": "0.12.0",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "stdlib": 5,
+        "stdlib_py2_only": [],
+        "third_party": [
+          "click",
+          "unicodecsv",
+          "xlwt"
+        ]
+      }
+    },
+    {
+      "tool": "tree_sitter",
+      "version": "0.26.0",
+      "verified": true,
+      "sample_ok": true,
+      "sample_stats": {
+        "java_definitions": 82,
+        "java_files": 15,
+        "python_definitions": 39,
+        "python_files": 5,
+        "python_files_with_errors": 0
+      }
+    }
+  ]
+}

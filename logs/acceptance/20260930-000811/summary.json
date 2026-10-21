@@ -1,0 +1,50 @@
+[
+  {
+    "check": "images: real Py2.7, Py3.11, JDK17+Maven",
+    "ok": true,
+    "seconds": 3.3,
+    "detail": "{\"py27\": \"0 <type 'str'>\", \"py3\": \"0.5 <class 'str'>\", \"java17\": \"openjdk version \\\"17.0.20.1\\\" 2026-08-18\\n\\u001b[1mApache Maven 3.6.3\\u001b[m\"}"
+  },
+  {
+    "check": "differential: naive Py3 migration flags hazards",
+    "ok": true,
+    "seconds": 8.9,
+    "detail": "verdicts={'avg-1': False, 'avg-empty': True, 'shout-1': True, 'evens-1': False, 'mutate-1': True, 'counter-1': True, 'spin-1': True}"
+  },
+  {
+    "check": "differential: correct Py3 migration is equivalent",
+    "ok": true,
+    "seconds": 7.5,
+    "detail": "verdicts={'avg-1': True, 'avg-empty': True, 'shout-1': True, 'evens-1': True, 'mutate-1': True, 'counter-1': True, 'spin-1': True}"
+  },
+  {
+    "check": "isolation: py27 sandbox",
+    "ok": true,
+    "seconds": 2.3,
+    "detail": "all 8 properties hold"
+  },
+  {
+    "check": "isolation: py3 sandbox",
+    "ok": true,
+    "seconds": 3.2,
+    "detail": "all 8 properties hold"
+  },
+  {
+    "check": "determinism: repeated run is identical",
+    "ok": true,
+    "seconds": 6.8,
+    "detail": "two runs identical (excluding duration_ms)"
+  },
+  {
+    "check": "suite mode: JUnit5+Mockito offline in java17",
+    "ok": true,
+    "seconds": 10.8,
+    "detail": "returncode=0 tests=['passed', 'passed']"
+  },
+  {
+    "check": "suite mode: RepoTransBench regression projects green in py3",
+    "ok": true,
+    "seconds": 380.7,
+    "detail": "ok  alastair_python-musicbrainzngs: {'passed': 135} \n       ok  alingse_jsoncsv: {'passed': 41} \n       ok  7ossam81_EvoloPy: {'passed': 77, 'skipped': 2} "
+  }
+]

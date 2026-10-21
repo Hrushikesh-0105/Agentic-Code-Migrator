@@ -1,0 +1,69 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "whwlsfb_JDumpSpider",
+      "ok": true,
+      "regime": "java->python3",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261010-161525-36repos/whwlsfb_JDumpSpider",
+      "units": {
+        "escalated": 1,
+        "migrated": 8,
+        "out_of_scope": 257
+      },
+      "fragments": {
+        "escalated": 1,
+        "migrated": 8,
+        "out_of_scope": 267
+      },
+      "counters": {
+        "invocations": 13,
+        "retries": 4,
+        "invalid_verdicts": 0,
+        "escalated_units": 1,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "compile() (CPython 3.11)",
+        "files": 2,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261010-175108-whwlsfb_JDumpSpider/whwlsfb_JDumpSpider",
+      "scope": [
+        "cn.wanghw.utils.Base64"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 6,
+        "units_compiled_only": 2,
+        "differential_tests": 64,
+        "tests_equivalent": 64,
+        "units_repaired": 2,
+        "llm_tokens": {
+          "analyzer": 27293,
+          "testgen": 15364,
+          "translator": 34234,
+          "verdict": 5796
+        },
+        "llm_calls": {
+          "analyzer": 11,
+          "testgen": 7,
+          "translator": 10,
+          "verdict": 2
+        },
+        "mcp_calls": 79
+      }
+    }
+  ]
+}

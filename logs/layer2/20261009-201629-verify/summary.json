@@ -1,0 +1,86 @@
+{
+  "kind": "verify",
+  "ok": true,
+  "checks": [
+    {
+      "check": "Layer 0 builds the fixture bundle",
+      "ok": true,
+      "detail": "17 fixture + 10 contract checks"
+    },
+    {
+      "check": "every unit migrated except `report`, escalated after 3 attempts (nothing depends on it)",
+      "ok": true,
+      "detail": "16 units: {'escalated': 1, 'migrated': 15}"
+    },
+    {
+      "check": "Layer 1 run contract and the javac build of the migrated codebase",
+      "ok": true,
+      "detail": "contract 10/10; build ok (6 files)"
+    },
+    {
+      "check": "fact: the compile error is localized to `fact` with javac's message",
+      "ok": true,
+      "detail": "pkg.util.fact line 29: ';' expected"
+    },
+    {
+      "check": "fact: the repaired code compiles but overflows `long` on fact(25); the next repair (BigInteger) passes",
+      "ok": true,
+      "detail": "fact(25): legacy returns 15511210043330985984000000..., translation returns 7034535277573963776; final: 4/4 after 2 repairs"
+    },
+    {
+      "check": "Square.area: true division is caught (Python 2 floors: 9 vs 9.0), diagnosed, and repaired once",
+      "ok": true,
+      "detail": "3/3 differential tests differ, e.g. Square(3).area(): legacy returns 9, translation returns 9.0; then 3/3 differential tests equivalent (python2-java)"
+    },
+    {
+      "check": "report: inequivalent on every attempt; attempts 2 and 3 are told why the earlier ones failed",
+      "ok": true,
+      "detail": "3 translations; attempt 2's prompt quotes: Attempt 1: inequivalent - 1/2 differential tests differ, e.g. report({'a': 4}): legacy returns b'a=2\\n', translation returns 'a=2.0\\n'"
+    },
+    {
+      "check": "Test-Gen: an invalid case is dropped on the legacy run; a coverage round reaches the missed `raise`",
+      "ok": true,
+      "detail": "double dropped: ['wrong call: TypeError: double() takes exactly 1 argument (2 ']; report coverage 6/6 after 1 round"
+    },
+    {
+      "check": "cross-language equivalence: exceptions mapped, Python 2 str ~ Java String, int vs float overloads",
+      "ok": true,
+      "detail": "area 1/1; lookup 2/2; describe 1/1; double 5/5; is_even 6/6"
+    },
+    {
+      "check": "MCP: the Analyzer's tool call went through acm-analysis and its result reached the model",
+      "ok": true,
+      "detail": "126 MCP calls: {'workspace': 76, 'sandbox': 49, 'analysis': 1}; tool result 897 chars"
+    },
+    {
+      "check": "MCP: every sandbox and workspace action of the agents is an MCP call; none failed unexpectedly",
+      "ok": true,
+      "detail": "sandbox 49, workspace 76, analysis 1; 6 expected errors (outline of a file not created yet)"
+    },
+    {
+      "check": "Layer 1 report carries Layer 2's evidence (verified units, tests, repairs, cost)",
+      "ok": true,
+      "detail": "10 units verified by tests, 5 compile-only; 26/26 tests equivalent; 2 repaired"
+    },
+    {
+      "check": "an exhausted LLM quota stops the run (not a unit failure) with its checkpoint kept",
+      "ok": true,
+      "detail": "scripted: daily quota exhausted"
+    },
+    {
+      "check": "--resume continues and ends like the uninterrupted run",
+      "ok": true,
+      "detail": "{'escalated': 1, 'migrated': 15}; contract 10/10"
+    },
+    {
+      "check": "python-java comparator: known equivalent and inequivalent pairs",
+      "ok": true,
+      "detail": "tuple ~ Java list: ok; str vs byte[] differ: ok; int vs double differ: ok; ValueError ~ NumberFormatException: ok; project exception keeps its name: ok; KeyError vs ArithmeticException differ: ok; library exception (struct.error) ~ any unchecked Java exception: ok; project exception vs a generic Java one differ: ok; object fields by normalized name: ok"
+    },
+    {
+      "check": "MCP servers: paths outside their roots are refused; tool errors reach the caller",
+      "ok": true,
+      "detail": "Error executing tool run_java_cases: path outside the allowed roots: C:\\Users\\SH; Error executing tool get_fragment: ValueError: no fragment 'pkg.util.nope'; protocol 2026-07-28"
+    }
+  ]
+}

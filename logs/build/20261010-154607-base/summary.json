@@ -1,0 +1,44 @@
+[
+  {
+    "image": "acm-sandbox/gcc",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 159.5,
+    "log": "build/20261010-154607-base/gcc.log"
+  },
+  {
+    "image": "acm-sandbox/go121",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 131.7,
+    "log": "build/20261010-154607-base/go121.log"
+  },
+  {
+    "image": "acm-sandbox/rust",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 75.7,
+    "log": "build/20261010-154607-base/rust.log"
+  },
+  {
+    "image": "acm-sandbox/dotnet7",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 174.7,
+    "log": "build/20261010-154607-base/dotnet7.log"
+  },
+  {
+    "image": "acm-sandbox/node18",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 37.7,
+    "log": "build/20261010-154607-base/node18.log"
+  },
+  {
+    "image": "acm-sandbox/octave",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 212.0,
+    "log": "build/20261010-154607-base/octave.log"
+  }
+]

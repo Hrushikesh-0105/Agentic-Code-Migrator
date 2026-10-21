@@ -1,0 +1,1263 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 25.4,
+  "repos": [
+    {
+      "repo": "fafaldo-zz_FABToolbar",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 22,
+        "by_kind": {
+          "class": 3,
+          "method": 16,
+          "module_header": 3
+        },
+        "edges": 59,
+        "steps": 22,
+        "waves": 9,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 457,
+        "fragments_with_hazards": 2,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 2
+        },
+        "seconds": 1.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "19/24",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/fafaldo-zz_FABToolbar"
+    },
+    {
+      "repo": "andydevacc_MentionEditText",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 23,
+        "by_kind": {
+          "class": 5,
+          "method": 17,
+          "module_header": 1
+        },
+        "edges": 60,
+        "steps": 23,
+        "waves": 6,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 290,
+        "fragments_with_hazards": 0,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 3
+        },
+        "seconds": 0.3
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "15/17",
+        "call_recall": "3/3"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/andydevacc_MentionEditText"
+    },
+    {
+      "repo": "inloop_easygcm",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 75,
+        "by_kind": {
+          "class": 14,
+          "method": 48,
+          "module_header": 13
+        },
+        "edges": 233,
+        "steps": 65,
+        "waves": 10,
+        "cycles": 1,
+        "largest_cycle": 11,
+        "loc": 427,
+        "fragments_with_hazards": 1,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 11,
+          "recursive": 2
+        },
+        "seconds": 0.8
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "85/122",
+        "call_recall": "1/1"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/inloop_easygcm"
+    },
+    {
+      "repo": "whwlsfb_JDumpSpider",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 276,
+        "by_kind": {
+          "class": 33,
+          "method": 210,
+          "module_header": 33
+        },
+        "edges": 800,
+        "steps": 266,
+        "waves": 13,
+        "cycles": 4,
+        "largest_cycle": 4,
+        "loc": 2341,
+        "fragments_with_hazards": 11,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 1,
+          "recursive": 9,
+          "in_cycle": 14
+        },
+        "seconds": 1.7
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "278/335",
+        "call_recall": "2/2"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/whwlsfb_JDumpSpider"
+    },
+    {
+      "repo": "Hitomis_CircleMenu",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 13,
+        "by_kind": {
+          "class": 3,
+          "method": 6,
+          "module_header": 4
+        },
+        "edges": 22,
+        "steps": 13,
+        "waves": 6,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 65,
+        "fragments_with_hazards": 0,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 2
+        },
+        "seconds": 0.7
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "5/7",
+        "call_recall": "2/2"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/Hitomis_CircleMenu"
+    },
+    {
+      "repo": "JulienGenoud_android-percent-support-lib-sample",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 32,
+        "by_kind": {
+          "class": 6,
+          "method": 23,
+          "module_header": 3
+        },
+        "edges": 70,
+        "steps": 32,
+        "waves": 8,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 334,
+        "fragments_with_hazards": 0,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 13
+        },
+        "seconds": 0.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "12/15",
+        "call_recall": "1/1"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/JulienGenoud_android-percent-support-lib-sample"
+    },
+    {
+      "repo": "tonerdo_dotnet-env",
+      "ok": false,
+      "regime": "csharp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 115,
+        "by_kind": {
+          "class": 23,
+          "method": 78,
+          "module_header": 14
+        },
+        "edges": 324,
+        "steps": 102,
+        "waves": 11,
+        "cycles": 1,
+        "largest_cycle": 14,
+        "loc": 765,
+        "fragments_with_hazards": 33,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 14,
+          "oversized": 1
+        },
+        "seconds": 0.8
+      },
+      "validation": "9/10",
+      "failed_checks": [
+        "annotations point inside their fragment; branch conditions at control-flow lines"
+      ],
+      "graph_quality": null,
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/tonerdo_dotnet-env"
+    },
+    {
+      "repo": "kfinley_TypeMerger",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 28,
+        "by_kind": {
+          "class": 2,
+          "method": 24,
+          "module_header": 2
+        },
+        "edges": 79,
+        "steps": 26,
+        "waves": 6,
+        "cycles": 1,
+        "largest_cycle": 3,
+        "loc": 239,
+        "fragments_with_hazards": 2,
+        "fragments_with_target_hints": 4,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 3
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "23/24",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/kfinley_TypeMerger"
+    },
+    {
+      "repo": "MidLevel_MLAPI.Puncher",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 56,
+        "by_kind": {
+          "class": 13,
+          "method": 31,
+          "module_header": 12
+        },
+        "edges": 168,
+        "steps": 48,
+        "waves": 10,
+        "cycles": 4,
+        "largest_cycle": 4,
+        "loc": 707,
+        "fragments_with_hazards": 13,
+        "fragments_with_target_hints": 5,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 12,
+          "entrypoint": 2
+        },
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "49/60",
+        "call_recall": "3/3"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/MidLevel_MLAPI.Puncher"
+    },
+    {
+      "repo": "davidfowl_Roslyn.Reflection",
+      "ok": false,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 192,
+        "by_kind": {
+          "class": 12,
+          "method": 167,
+          "module_header": 12,
+          "module_init": 1
+        },
+        "edges": 614,
+        "steps": 148,
+        "waves": 4,
+        "cycles": 1,
+        "largest_cycle": 45,
+        "loc": 1372,
+        "fragments_with_hazards": 33,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 45
+        },
+        "seconds": 0.8
+      },
+      "validation": "9/10",
+      "failed_checks": [
+        "annotations point inside their fragment; branch conditions at control-flow lines"
+      ],
+      "graph_quality": null,
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/davidfowl_Roslyn.Reflection"
+    },
+    {
+      "repo": "mcintyre321_LinqToAnything",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 90,
+        "by_kind": {
+          "class": 22,
+          "method": 56,
+          "module_header": 12
+        },
+        "edges": 251,
+        "steps": 78,
+        "waves": 9,
+        "cycles": 9,
+        "largest_cycle": 4,
+        "loc": 630,
+        "fragments_with_hazards": 24,
+        "fragments_with_target_hints": 5,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 21,
+          "recursive": 5
+        },
+        "seconds": 0.4
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "76/96",
+        "call_recall": "12/12"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/mcintyre321_LinqToAnything"
+    },
+    {
+      "repo": "Cysharp_PrivateProxy",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 98,
+        "by_kind": {
+          "class": 28,
+          "method": 62,
+          "module_header": 7,
+          "module_init": 1
+        },
+        "edges": 229,
+        "steps": 91,
+        "waves": 8,
+        "cycles": 6,
+        "largest_cycle": 3,
+        "loc": 859,
+        "fragments_with_hazards": 32,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 13
+        },
+        "seconds": 0.4
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "53/64",
+        "call_recall": "1/1"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/Cysharp_PrivateProxy"
+    },
+    {
+      "repo": "wuwenbin_buddy2",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 9,
+        "by_kind": {
+          "function": 7,
+          "module_header": 2
+        },
+        "edges": 8,
+        "steps": 9,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 142,
+        "fragments_with_hazards": 8,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "1/1",
+        "call_recall": "1/1"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/wuwenbin_buddy2"
+    },
+    {
+      "repo": "cloudwu_rudp",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 32,
+        "by_kind": {
+          "function": 29,
+          "module_header": 3
+        },
+        "edges": 69,
+        "steps": 32,
+        "waves": 8,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 571,
+        "fragments_with_hazards": 21,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 1
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "38/38",
+        "call_recall": "36/36"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/cloudwu_rudp"
+    },
+    {
+      "repo": "Esonhugh_sshd_backdoor",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 11,
+        "by_kind": {
+          "function": 5,
+          "module_header": 6
+        },
+        "edges": 5,
+        "steps": 11,
+        "waves": 2,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 262,
+        "fragments_with_hazards": 7,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/Esonhugh_sshd_backdoor"
+    },
+    {
+      "repo": "agentzh_chunkin-nginx-module",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 38,
+        "by_kind": {
+          "function": 26,
+          "module_header": 9,
+          "module_init": 3
+        },
+        "edges": 82,
+        "steps": 38,
+        "waves": 11,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 2538,
+        "fragments_with_hazards": 15,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "oversized": 2
+        },
+        "seconds": 0.3
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "37/37",
+        "call_recall": "33/33"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/agentzh_chunkin-nginx-module"
+    },
+    {
+      "repo": "rvrsh3ll_BOF_Collection",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 25,
+        "by_kind": {
+          "function": 10,
+          "module_header": 10,
+          "module_init": 5
+        },
+        "edges": 36,
+        "steps": 25,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 467,
+        "fragments_with_hazards": 10,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "16/16",
+        "call_recall": "15/15"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/rvrsh3ll_BOF_Collection"
+    },
+    {
+      "repo": "cloudwu_coroutine",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 17,
+        "by_kind": {
+          "function": 14,
+          "module_header": 3
+        },
+        "edges": 32,
+        "steps": 13,
+        "waves": 5,
+        "cycles": 1,
+        "largest_cycle": 5,
+        "loc": 226,
+        "fragments_with_hazards": 11,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 5,
+          "entrypoint": 1
+        },
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "16/16",
+        "call_recall": "12/12"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/cloudwu_coroutine"
+    },
+    {
+      "repo": "LeechanX_Ring-Log",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 18,
+        "by_kind": {
+          "class": 2,
+          "function": 4,
+          "method": 7,
+          "module_header": 4,
+          "module_init": 1
+        },
+        "edges": 34,
+        "steps": 18,
+        "waves": 5,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 147,
+        "fragments_with_hazards": 8,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 2
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "9/9",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/LeechanX_Ring-Log"
+    },
+    {
+      "repo": "ckcr4lyf_EvilAppleJuice-ESP32",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 10,
+        "by_kind": {
+          "class": 1,
+          "function": 1,
+          "method": 6,
+          "module_header": 2
+        },
+        "edges": 21,
+        "steps": 10,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 27,
+        "fragments_with_hazards": 1,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 1
+        },
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "6/6",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/ckcr4lyf_EvilAppleJuice-ESP32"
+    },
+    {
+      "repo": "MengRao_tscns",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 13,
+        "by_kind": {
+          "class": 2,
+          "method": 10,
+          "module_header": 1
+        },
+        "edges": 37,
+        "steps": 11,
+        "waves": 6,
+        "cycles": 1,
+        "largest_cycle": 3,
+        "loc": 132,
+        "fragments_with_hazards": 11,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 3
+        },
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "14/15",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/MengRao_tscns"
+    },
+    {
+      "repo": "mattbierner_Template-Assembly",
+      "ok": false,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 1152,
+        "by_kind": {
+          "class": 73,
+          "function": 1046,
+          "method": 4,
+          "module_header": 17,
+          "module_init": 12
+        },
+        "edges": 4482,
+        "steps": 1150,
+        "waves": 7,
+        "cycles": 1,
+        "largest_cycle": 3,
+        "loc": 4851,
+        "fragments_with_hazards": 1100,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 3
+        },
+        "seconds": 2.9
+      },
+      "validation": "9/10",
+      "failed_checks": [
+        "annotations point inside their fragment; branch conditions at control-flow lines"
+      ],
+      "graph_quality": null,
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/mattbierner_Template-Assembly"
+    },
+    {
+      "repo": "innolitics_natural-neighbor-interpolation",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 29,
+        "by_kind": {
+          "class": 4,
+          "function": 8,
+          "method": 11,
+          "module_header": 5,
+          "module_init": 1
+        },
+        "edges": 67,
+        "steps": 25,
+        "waves": 9,
+        "cycles": 2,
+        "largest_cycle": 4,
+        "loc": 344,
+        "fragments_with_hazards": 12,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 2,
+          "in_cycle": 6
+        },
+        "seconds": 0.3
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "21/28",
+        "call_recall": "3/3"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/innolitics_natural-neighbor-interpolation"
+    },
+    {
+      "repo": "KEKE046_mlir-tutorial",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 96,
+        "by_kind": {
+          "class": 14,
+          "function": 7,
+          "method": 43,
+          "module_header": 32
+        },
+        "edges": 161,
+        "steps": 92,
+        "waves": 7,
+        "cycles": 2,
+        "largest_cycle": 3,
+        "loc": 704,
+        "fragments_with_hazards": 3,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "entrypoint": 7,
+          "in_cycle": 6
+        },
+        "seconds": 1.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "30/38",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/KEKE046_mlir-tutorial"
+    },
+    {
+      "repo": "lorisleiva_tailwindcss-plugins",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 8,
+        "by_kind": {
+          "function": 1,
+          "module_header": 6,
+          "module_init": 1
+        },
+        "edges": 1,
+        "steps": 8,
+        "waves": 2,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 124,
+        "fragments_with_hazards": 0,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.4
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "1/1",
+        "call_recall": "1/1"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/lorisleiva_tailwindcss-plugins"
+    },
+    {
+      "repo": "assertible_lambda-cloudwatch-slack",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 6,
+        "by_kind": {
+          "function": 3,
+          "module_header": 2,
+          "module_init": 1
+        },
+        "edges": 8,
+        "steps": 6,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 113,
+        "fragments_with_hazards": 0,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "3/3",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/assertible_lambda-cloudwatch-slack"
+    },
+    {
+      "repo": "codemeasandwich_graphql-query-builder",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 18,
+        "by_kind": {
+          "function": 6,
+          "module_header": 6,
+          "module_init": 6
+        },
+        "edges": 30,
+        "steps": 16,
+        "waves": 4,
+        "cycles": 2,
+        "largest_cycle": 2,
+        "loc": 391,
+        "fragments_with_hazards": 5,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 4,
+          "recursive": 1
+        },
+        "seconds": 0.4
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "16/16",
+        "call_recall": "10/10"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/codemeasandwich_graphql-query-builder"
+    },
+    {
+      "repo": "aackerman_circular-dependency-plugin",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 6,
+        "by_kind": {
+          "class": 1,
+          "method": 3,
+          "module_header": 1,
+          "module_init": 1
+        },
+        "edges": 11,
+        "steps": 6,
+        "waves": 5,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 104,
+        "fragments_with_hazards": 3,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 1
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "3/3",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/aackerman_circular-dependency-plugin"
+    },
+    {
+      "repo": "fzaninotto_screenshot-as-a-service",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 14,
+        "by_kind": {
+          "function": 3,
+          "module_header": 7,
+          "module_init": 4
+        },
+        "edges": 14,
+        "steps": 14,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 337,
+        "fragments_with_hazards": 7,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "5/5",
+        "call_recall": "2/2"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/fzaninotto_screenshot-as-a-service"
+    },
+    {
+      "repo": "Jxck_html2json",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 6,
+        "by_kind": {
+          "module_header": 6
+        },
+        "edges": 1,
+        "steps": 6,
+        "waves": 2,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 458,
+        "fragments_with_hazards": 3,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "oversized": 1
+        },
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/Jxck_html2json"
+    },
+    {
+      "repo": "PrakritTyagi_MPC_Target-Tracking_UAV",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 8,
+        "by_kind": {
+          "function": 4,
+          "module_header": 2,
+          "module_init": 2
+        },
+        "edges": 2,
+        "steps": 8,
+        "waves": 2,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 1470,
+        "fragments_with_hazards": 6,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "oversized": 6
+        },
+        "seconds": 0.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/PrakritTyagi_MPC_Target-Tracking_UAV"
+    },
+    {
+      "repo": "Cking616_Adavance_PID",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 41,
+        "by_kind": {
+          "class": 2,
+          "function": 18,
+          "method": 8,
+          "module_header": 10,
+          "module_init": 3
+        },
+        "edges": 47,
+        "steps": 41,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 775,
+        "fragments_with_hazards": 35,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "oversized": 1
+        },
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "20/21",
+        "call_recall": "12/12"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/Cking616_Adavance_PID"
+    },
+    {
+      "repo": "iguanaus_ScatterNet",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 51,
+        "by_kind": {
+          "function": 38,
+          "module_header": 8,
+          "module_init": 5
+        },
+        "edges": 39,
+        "steps": 51,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 713,
+        "fragments_with_hazards": 38,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.9
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "23/23",
+        "call_recall": "16/17"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/iguanaus_ScatterNet"
+    },
+    {
+      "repo": "HyeonwooNoh_DeconvNet",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 9,
+        "by_kind": {
+          "function": 5,
+          "module_header": 3,
+          "module_init": 1
+        },
+        "edges": 7,
+        "steps": 9,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 338,
+        "fragments_with_hazards": 9,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "6/6",
+        "call_recall": "6/6"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/HyeonwooNoh_DeconvNet"
+    },
+    {
+      "repo": "ahoereth_matlab-neural-networks",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 30,
+        "by_kind": {
+          "class": 4,
+          "function": 4,
+          "method": 11,
+          "module_header": 6,
+          "module_init": 5
+        },
+        "edges": 61,
+        "steps": 30,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 421,
+        "fragments_with_hazards": 20,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.5
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "36/45",
+        "call_recall": "36/36"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/ahoereth_matlab-neural-networks"
+    },
+    {
+      "repo": "bobvo23_flicker_stimulator",
+      "ok": true,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 17,
+        "by_kind": {
+          "function": 5,
+          "module_header": 6,
+          "module_init": 6
+        },
+        "edges": 11,
+        "steps": 17,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 314,
+        "fragments_with_hazards": 13,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.3
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "5/5",
+        "call_recall": "5/5"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161525-36repos/bobvo23_flicker_stimulator"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 21.3,
+  "repos": [
+    {
+      "repo": "aventrix_jnanoid",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 5,
+        "by_kind": {
+          "class": 1,
+          "method": 3,
+          "module_header": 1
+        },
+        "edges": 7,
+        "steps": 5,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 44,
+        "fragments_with_hazards": 1,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 1
+        },
+        "seconds": 1.8
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/aventrix_jnanoid"
+    },
+    {
+      "repo": "bolorundurowb_shortid",
+      "ok": true,
+      "regime": "csharp->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 15,
+        "by_kind": {
+          "class": 4,
+          "method": 7,
+          "module_header": 4
+        },
+        "edges": 33,
+        "steps": 14,
+        "waves": 6,
+        "cycles": 1,
+        "largest_cycle": 2,
+        "loc": 112,
+        "fragments_with_hazards": 3,
+        "fragments_with_target_hints": 4,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 2
+        },
+        "seconds": 0.4
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "7/12",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/bolorundurowb_shortid"
+    },
+    {
+      "repo": "mkirchner_linked-list-good-taste",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 8,
+        "by_kind": {
+          "function": 5,
+          "module_header": 3
+        },
+        "edges": 8,
+        "steps": 8,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 63,
+        "fragments_with_hazards": 2,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "2/2",
+        "call_recall": "2/2"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/mkirchner_linked-list-good-taste"
+    },
+    {
+      "repo": "JieweiWei_md5",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 9,
+        "by_kind": {
+          "method": 7,
+          "module_header": 2
+        },
+        "edges": 14,
+        "steps": 9,
+        "waves": 7,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 225,
+        "fragments_with_hazards": 6,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "6/6",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/JieweiWei_md5"
+    },
+    {
+      "repo": "chenhuiYj_ec-css",
+      "ok": true,
+      "regime": "javascript->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 2,
+        "by_kind": {
+          "module_header": 2
+        },
+        "edges": 0,
+        "steps": 2,
+        "waves": 1,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 98,
+        "fragments_with_hazards": 1,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/chenhuiYj_ec-css"
+    },
+    {
+      "repo": "baddoo_piDMD",
+      "ok": false,
+      "regime": "matlab->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 19,
+        "by_kind": {
+          "function": 12,
+          "module_header": 4,
+          "module_init": 3
+        },
+        "edges": 15,
+        "steps": 19,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 250,
+        "fragments_with_hazards": 13,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.4
+      },
+      "validation": "9/10",
+      "failed_checks": [
+        "fragments are disjoint"
+      ],
+      "graph_quality": null,
+      "tool_failures": [],
+      "bundle": "layer0/20261010-161338-6repos/baddoo_piDMD"
+    }
+  ]
+}

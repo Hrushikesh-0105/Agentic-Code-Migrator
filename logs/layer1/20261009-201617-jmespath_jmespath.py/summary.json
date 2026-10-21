@@ -1,0 +1,69 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "jmespath_jmespath.py",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261009-192948-jmespath_jmespath.py/jmespath_jmespath.py",
+      "units": {
+        "migrated": 22,
+        "out_of_scope": 170
+      },
+      "fragments": {
+        "migrated": 22,
+        "out_of_scope": 184
+      },
+      "counters": {
+        "invocations": 22,
+        "retries": 0,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 1,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-201617-jmespath_jmespath.py/jmespath_jmespath.py",
+      "scope": [
+        "jmespath.ast"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 22,
+        "units_compiled_only": 0,
+        "differential_tests": 170,
+        "tests_equivalent": 170,
+        "units_repaired": 2,
+        "llm_tokens": {
+          "analyzer": 58485,
+          "repair": 9070,
+          "testgen": 26920,
+          "translator": 40019,
+          "verdict": 2487
+        },
+        "llm_calls": {
+          "analyzer": 44,
+          "repair": 4,
+          "testgen": 22,
+          "translator": 24,
+          "verdict": 2
+        },
+        "mcp_calls": 184
+      }
+    }
+  ]
+}

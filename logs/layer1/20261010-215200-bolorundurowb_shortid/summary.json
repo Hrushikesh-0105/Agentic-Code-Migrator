@@ -1,0 +1,70 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "bolorundurowb_shortid",
+      "ok": true,
+      "regime": "csharp->java",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261010-175404-bolorundurowb_shortid/bolorundurowb_shortid",
+      "units": {
+        "migrated": 10,
+        "out_of_scope": 4
+      },
+      "fragments": {
+        "migrated": 11,
+        "out_of_scope": 4
+      },
+      "counters": {
+        "invocations": 12,
+        "retries": 2,
+        "invalid_verdicts": 0,
+        "escalated_units": 0,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 8,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 2
+      },
+      "out": "layer1/20261010-215200-bolorundurowb_shortid/bolorundurowb_shortid",
+      "scope": [
+        "src.shortid.Configuration.GenerationOptions",
+        "src.shortid.ShortId.ShortId.SetCharacters"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 2,
+        "units_compiled_only": 8,
+        "differential_tests": 17,
+        "tests_equivalent": 17,
+        "units_repaired": 1,
+        "llm_tokens": {
+          "analyzer": 27917,
+          "repair": 17551,
+          "testgen": 4514,
+          "translator": 23040,
+          "verdict": 2634
+        },
+        "llm_calls": {
+          "analyzer": 15,
+          "repair": 6,
+          "testgen": 3,
+          "translator": 12,
+          "verdict": 2
+        },
+        "mcp_calls": 78
+      }
+    }
+  ]
+}

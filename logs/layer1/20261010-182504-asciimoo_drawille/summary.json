@@ -1,0 +1,74 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "asciimoo_drawille",
+      "ok": true,
+      "regime": "python3->rust",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261010-175113-asciimoo_drawille/asciimoo_drawille",
+      "units": {
+        "escalated": 1,
+        "migrated": 4,
+        "out_of_scope": 43
+      },
+      "fragments": {
+        "escalated": 1,
+        "migrated": 4,
+        "out_of_scope": 43
+      },
+      "counters": {
+        "invocations": 7,
+        "retries": 2,
+        "invalid_verdicts": 0,
+        "escalated_units": 1,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "rust",
+        "files": 3,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 2
+      },
+      "out": "layer1/20261010-182504-asciimoo_drawille/asciimoo_drawille",
+      "scope": [
+        "drawille.normalize",
+        "drawille.get_pos",
+        "drawille.line",
+        "drawille.polygon"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 3,
+        "units_compiled_only": 1,
+        "differential_tests": 30,
+        "tests_equivalent": 30,
+        "units_repaired": 0,
+        "llm_tokens": {
+          "analyzer": 12291,
+          "repair": 32865,
+          "testgen": 6906,
+          "translator": 25017,
+          "verdict": 11000
+        },
+        "llm_calls": {
+          "analyzer": 5,
+          "repair": 8,
+          "testgen": 4,
+          "translator": 7,
+          "verdict": 6
+        },
+        "mcp_calls": 67
+      }
+    }
+  ]
+}

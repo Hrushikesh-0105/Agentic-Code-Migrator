@@ -1,0 +1,22 @@
+__pycache__/
+.venv/
+.env
+*.pyc
+.pytest_cache/
+conversation-archive.md
+
+# RepoTransBench dataset (download from the v1.0 GitHub release)
+benchmarks/
+
+# Sandbox run logs (see logs/README.md): raw output stays local; the top-level summary.json of each
+# build / acceptance / rtb_smoke / analysis-check / layer0 / layer1 run is committed as run history
+logs/**
+!logs/**/
+!logs/README.md
+!logs/build/*/summary.json
+!logs/acceptance/*/summary.json
+!logs/rtb_smoke/*/summary.json
+!logs/analysis/*/summary.json
+!logs/layer0/*/summary.json
+!logs/layer1/*/summary.json
+!logs/layer2/*/summary.json

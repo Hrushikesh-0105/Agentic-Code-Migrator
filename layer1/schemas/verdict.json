@@ -1,0 +1,213 @@
+{
+  "$defs": {
+    "AgentStep": {
+      "additionalProperties": false,
+      "properties": {
+        "agent": {
+          "title": "Agent",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "seconds": {
+          "default": 0.0,
+          "title": "Seconds",
+          "type": "number"
+        },
+        "detail": {
+          "default": "",
+          "title": "Detail",
+          "type": "string"
+        }
+      },
+      "required": [
+        "agent",
+        "status"
+      ],
+      "title": "AgentStep",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "compiled": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Compiled"
+        },
+        "tests_generated": {
+          "default": 0,
+          "title": "Tests Generated",
+          "type": "integer"
+        },
+        "tests_passed": {
+          "default": 0,
+          "title": "Tests Passed",
+          "type": "integer"
+        },
+        "tests_failed": {
+          "default": 0,
+          "title": "Tests Failed",
+          "type": "integer"
+        },
+        "failing": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Failing",
+          "type": "array"
+        },
+        "log_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Log Dir"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Piece": {
+      "additionalProperties": false,
+      "properties": {
+        "fragment": {
+          "description": "id of the fragment this code translates",
+          "title": "Fragment",
+          "type": "string"
+        },
+        "target_file": {
+          "description": "path in the migrated codebase, relative and POSIX style",
+          "title": "Target File",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "section": {
+          "default": "body",
+          "enum": [
+            "body",
+            "preamble"
+          ],
+          "title": "Section",
+          "type": "string"
+        },
+        "slot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "compose: insert into the slot of this name in target_file",
+          "title": "Slot"
+        },
+        "scaffold": {
+          "default": false,
+          "description": "compose: shared container code; identical copies are kept once",
+          "title": "Scaffold",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "fragment",
+        "target_file",
+        "code"
+      ],
+      "title": "Piece",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "additionalProperties": true,
+      "title": "Protocol",
+      "type": "object"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "attempt": {
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "error",
+        "needs_human"
+      ],
+      "title": "Outcome",
+      "type": "string"
+    },
+    "reason": {
+      "default": "",
+      "title": "Reason",
+      "type": "string"
+    },
+    "translations": {
+      "default": [],
+      "description": "required for pass; optional candidate code otherwise",
+      "items": {
+        "$ref": "#/$defs/Piece"
+      },
+      "title": "Translations",
+      "type": "array"
+    },
+    "evidence": {
+      "$ref": "#/$defs/Evidence"
+    },
+    "trace": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AgentStep"
+      },
+      "title": "Trace",
+      "type": "array"
+    },
+    "usage": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "default": {},
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "required": [
+    "protocol",
+    "unit",
+    "attempt",
+    "outcome"
+  ],
+  "title": "Verdict",
+  "type": "object"
+}

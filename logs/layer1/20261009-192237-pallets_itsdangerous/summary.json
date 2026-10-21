@@ -1,0 +1,72 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "pallets_itsdangerous",
+      "ok": true,
+      "regime": "python3->java",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261009-191615-pallets_itsdangerous/pallets_itsdangerous",
+      "units": {
+        "escalated": 2,
+        "migrated": 12,
+        "out_of_scope": 59
+      },
+      "fragments": {
+        "escalated": 2,
+        "migrated": 17,
+        "out_of_scope": 62
+      },
+      "counters": {
+        "invocations": 20,
+        "retries": 6,
+        "invalid_verdicts": 0,
+        "escalated_units": 2,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 8,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 1
+      },
+      "out": "layer1/20261009-192237-pallets_itsdangerous/pallets_itsdangerous",
+      "scope": [
+        "itsdangerous.encoding",
+        "itsdangerous.exc"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 8,
+        "units_compiled_only": 4,
+        "differential_tests": 65,
+        "tests_equivalent": 65,
+        "units_repaired": 6,
+        "llm_tokens": {
+          "analyzer": 32440,
+          "repair": 99016,
+          "testgen": 23236,
+          "translator": 53488,
+          "verdict": 31484
+        },
+        "llm_calls": {
+          "analyzer": 20,
+          "repair": 32,
+          "testgen": 15,
+          "translator": 25,
+          "verdict": 21
+        },
+        "mcp_calls": 204
+      }
+    }
+  ]
+}

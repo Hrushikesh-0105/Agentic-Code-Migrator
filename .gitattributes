@@ -1,0 +1,4 @@
+# Scripts and Dockerfiles run inside Linux containers: CRLF would break them (/bin/bash^M)
+*.sh text eol=lf
+*.py text eol=lf
+Dockerfile text eol=lf

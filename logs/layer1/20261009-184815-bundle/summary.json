@@ -1,0 +1,70 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "fixture",
+      "ok": true,
+      "regime": "python2->java",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer1/20261009-004018-verify/layer0/verify/verify/bundle",
+      "units": {
+        "escalated": 1,
+        "migrated": 1,
+        "out_of_scope": 16
+      },
+      "fragments": {
+        "escalated": 1,
+        "migrated": 1,
+        "out_of_scope": 17
+      },
+      "counters": {
+        "invocations": 4,
+        "retries": 2,
+        "invalid_verdicts": 0,
+        "escalated_units": 1,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "javac (OpenJDK 17)",
+        "files": 1,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "template",
+        "model": null,
+        "attempts": 0
+      },
+      "out": "layer1/20261009-184815-bundle/bundle",
+      "scope": [
+        "pkg.util.double"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 0,
+        "units_compiled_only": 1,
+        "differential_tests": 0,
+        "tests_equivalent": 0,
+        "units_repaired": 0,
+        "llm_tokens": {
+          "analyzer": 4197,
+          "repair": 5021,
+          "testgen": 1146,
+          "translator": 5081
+        },
+        "llm_calls": {
+          "analyzer": 3,
+          "mcp": 29,
+          "repair": 3,
+          "testgen": 1,
+          "translator": 4
+        },
+        "mcp_calls": 29
+      }
+    }
+  ]
+}

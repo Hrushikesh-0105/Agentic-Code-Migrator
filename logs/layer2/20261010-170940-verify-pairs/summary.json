@@ -1,0 +1,105 @@
+{
+  "kind": "verify-pairs",
+  "ok": true,
+  "pairs": [
+    "python3->rust",
+    "python3->go",
+    "python3->cpp",
+    "java->python3",
+    "java->csharp",
+    "java->go",
+    "c->python3",
+    "c->rust",
+    "cpp->python3",
+    "csharp->java",
+    "javascript->python3",
+    "matlab->python3"
+  ],
+  "checks": [
+    {
+      "check": "Layer 0 builds every fixture bundle",
+      "ok": true,
+      "detail": "python3_to_rust: 5 fragments, python3_to_go: 5 fragments, python3_to_cpp: 5 fragments, java_to_python3: 8 fragments, java_to_csharp: 8 fragments, java_to_go: 8 fragments, c_to_python3: 2 fragments, c_to_rust: 2 fragments, cpp_to_python3: 6 fragments, csharp_to_java: 7 fragments, javascript_to_python3: 6 fragments, matlab_to_python3: 2 fragments"
+    },
+    {
+      "check": "python3 -> rust: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 5}; build ok (rust); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "python3 -> rust: the planted bug in safe_div is caught (inequivalent) and repaired",
+      "ok": true,
+      "detail": "1/3 differential tests differ, e.g. safe_div(-7, 2): legacy returns -4, translation returns -3; then pass: 3/3 differential tests equivalent (cross:python3->rust)"
+    },
+    {
+      "check": "python3 -> go: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 5}; build ok (go121); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "python3 -> go: the planted bug in twice is caught (compile_error) and repaired",
+      "ok": true,
+      "detail": "does not compile (1 error(s)): (the unit's imports) line 2: \"fmt\" imported and not used; then pass: 3/3 differential tests equivalent (cross:python3->go)"
+    },
+    {
+      "check": "python3 -> cpp: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 5}; build ok (gcc); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "java -> python3: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 8}; build ok (compile() (CPython 3.11)); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "java -> csharp: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 7}; build ok (dotnet7); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "java -> go: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 8}; build ok (go121); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "c -> python3: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 2}; build ok (compile() (CPython 3.11)); tests 6/6 equivalent over ['fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "c -> python3: the planted bug in safe_div is caught (inequivalent) and repaired",
+      "ok": true,
+      "detail": "1/3 differential tests differ, e.g. safe_div(-7, 2): legacy returns -4, translation returns -3; then pass: 3/3 differential tests equivalent (cross:c->python3)"
+    },
+    {
+      "check": "c -> rust: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 2}; build ok (rust); tests 6/6 equivalent over ['fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "cpp -> python3: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 6}; build ok (compile() (CPython 3.11)); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "csharp -> java: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 6}; build ok (javac (OpenJDK 17)); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "javascript -> python3: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 6}; build ok (compile() (CPython 3.11)); tests 9/9 equivalent over ['ctor:Counter', 'fn:bump', 'fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "matlab -> python3: every unit migrates, the target builds, every differential test is equivalent",
+      "ok": true,
+      "detail": "units {'migrated': 2}; build ok (compile() (CPython 3.11)); tests 6/6 equivalent over ['fn:safe_div', 'fn:twice']; contract 10/10"
+    },
+    {
+      "check": "all pairs: differential tests across languages",
+      "ok": true,
+      "detail": "99/99 equivalent over 12 pairs"
+    }
+  ]
+}

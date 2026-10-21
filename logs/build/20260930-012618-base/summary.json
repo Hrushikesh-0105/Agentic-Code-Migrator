@@ -1,0 +1,9 @@
+[
+  {
+    "image": "acm-sandbox/analysis",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 10.1,
+    "log": "build/20260930-012618-base/analysis.log"
+  }
+]

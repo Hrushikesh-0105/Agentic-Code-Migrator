@@ -1,0 +1,278 @@
+{
+  "$defs": {
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "edge_kinds": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Edge Kinds",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "migrated",
+            "vendored"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "file": {
+          "title": "File",
+          "type": "string"
+        },
+        "signature": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Signature"
+        },
+        "translations": {
+          "description": "the committed translation (empty for vendored code)",
+          "items": {
+            "$ref": "#/$defs/Piece"
+          },
+          "title": "Translations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "edge_kinds",
+        "status",
+        "file",
+        "signature",
+        "translations"
+      ],
+      "title": "Dependency",
+      "type": "object"
+    },
+    "Feedback": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "outcome": {
+          "title": "Outcome",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        },
+        "evidence": {
+          "additionalProperties": true,
+          "title": "Evidence",
+          "type": "object"
+        }
+      },
+      "required": [
+        "attempt",
+        "outcome",
+        "reason",
+        "problems",
+        "evidence"
+      ],
+      "title": "Feedback",
+      "type": "object"
+    },
+    "Piece": {
+      "additionalProperties": false,
+      "properties": {
+        "fragment": {
+          "description": "id of the fragment this code translates",
+          "title": "Fragment",
+          "type": "string"
+        },
+        "target_file": {
+          "description": "path in the migrated codebase, relative and POSIX style",
+          "title": "Target File",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "section": {
+          "default": "body",
+          "enum": [
+            "body",
+            "preamble"
+          ],
+          "title": "Section",
+          "type": "string"
+        },
+        "slot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "compose: insert into the slot of this name in target_file",
+          "title": "Slot"
+        },
+        "scaffold": {
+          "default": false,
+          "description": "compose: shared container code; identical copies are kept once",
+          "title": "Scaffold",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "fragment",
+        "target_file",
+        "code"
+      ],
+      "title": "Piece",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "additionalProperties": true,
+      "title": "Protocol",
+      "type": "object"
+    },
+    "run": {
+      "title": "Run",
+      "type": "string"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "step": {
+      "title": "Step",
+      "type": "integer"
+    },
+    "wave": {
+      "title": "Wave",
+      "type": "integer"
+    },
+    "cycle": {
+      "title": "Cycle",
+      "type": "boolean"
+    },
+    "attempt": {
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "max_attempts": {
+      "description": "the last attempt Layer 1 will make before escalating",
+      "title": "Max Attempts",
+      "type": "integer"
+    },
+    "migration": {
+      "additionalProperties": true,
+      "description": "source_language, target_language, regime (from the Layer 0 manifest)",
+      "title": "Migration",
+      "type": "object"
+    },
+    "assembly": {
+      "enum": [
+        "splice",
+        "compose"
+      ],
+      "title": "Assembly",
+      "type": "string"
+    },
+    "target": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "language, package, and the expected API of the classes this unit's target hints name (Java targets only)",
+      "title": "Target"
+    },
+    "fragments": {
+      "description": "the unit's Layer 0 fragment records, verbatim",
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Fragments",
+      "type": "array"
+    },
+    "dependencies": {
+      "description": "every fragment the unit depends on, already migrated",
+      "items": {
+        "$ref": "#/$defs/Dependency"
+      },
+      "title": "Dependencies",
+      "type": "array"
+    },
+    "feedback": {
+      "description": "previous attempts of this unit, oldest first",
+      "items": {
+        "$ref": "#/$defs/Feedback"
+      },
+      "title": "Feedback",
+      "type": "array"
+    },
+    "human_guidance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Human Guidance"
+    }
+  },
+  "required": [
+    "protocol",
+    "run",
+    "unit",
+    "step",
+    "wave",
+    "cycle",
+    "attempt",
+    "max_attempts",
+    "migration",
+    "assembly",
+    "target",
+    "fragments",
+    "dependencies",
+    "feedback"
+  ],
+  "title": "TranslationRequest",
+  "type": "object"
+}

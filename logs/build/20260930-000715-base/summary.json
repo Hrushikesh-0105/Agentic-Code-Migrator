@@ -1,0 +1,23 @@
+[
+  {
+    "image": "acm-sandbox/py27",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 5.4,
+    "log": "build/20260930-000715-base/py27.log"
+  },
+  {
+    "image": "acm-sandbox/py3",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 37.2,
+    "log": "build/20260930-000715-base/py3.log"
+  },
+  {
+    "image": "acm-sandbox/java17",
+    "ok": true,
+    "returncode": 0,
+    "seconds": 4.7,
+    "log": "build/20260930-000715-base/java17.log"
+  }
+]

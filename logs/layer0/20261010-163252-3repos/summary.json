@@ -1,0 +1,110 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 2.9,
+  "repos": [
+    {
+      "repo": "JieweiWei_md5",
+      "ok": true,
+      "regime": "cpp->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 11,
+        "by_kind": {
+          "class": 1,
+          "method": 7,
+          "module_header": 2,
+          "module_init": 1
+        },
+        "edges": 31,
+        "steps": 7,
+        "waves": 6,
+        "cycles": 2,
+        "largest_cycle": 4,
+        "loc": 225,
+        "fragments_with_hazards": 7,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "in_cycle": 6
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "14/14",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-163252-3repos/JieweiWei_md5"
+    },
+    {
+      "repo": "mkirchner_linked-list-good-taste",
+      "ok": true,
+      "regime": "c->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 8,
+        "by_kind": {
+          "function": 5,
+          "module_header": 3
+        },
+        "edges": 8,
+        "steps": 8,
+        "waves": 4,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 63,
+        "fragments_with_hazards": 2,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {},
+        "seconds": 0.1
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "2/2",
+        "call_recall": "2/2"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-163252-3repos/mkirchner_linked-list-good-taste"
+    },
+    {
+      "repo": "aventrix_jnanoid",
+      "ok": true,
+      "regime": "java->python3",
+      "source_root": ".",
+      "stats": {
+        "fragments": 5,
+        "by_kind": {
+          "class": 1,
+          "method": 3,
+          "module_header": 1
+        },
+        "edges": 7,
+        "steps": 5,
+        "waves": 3,
+        "cycles": 0,
+        "largest_cycle": 1,
+        "loc": 44,
+        "fragments_with_hazards": 1,
+        "fragments_with_target_hints": 0,
+        "unconfirmed_edges_dropped": 0,
+        "flags": {
+          "recursive": 1
+        },
+        "seconds": 0.2
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "0/0",
+        "call_recall": "0/0"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261010-163252-3repos/aventrix_jnanoid"
+    }
+  ]
+}

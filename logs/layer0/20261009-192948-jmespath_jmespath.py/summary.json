@@ -1,0 +1,44 @@
+{
+  "kind": "build",
+  "format": "acm-layer0-bundle 1.0",
+  "seconds": 60.9,
+  "repos": [
+    {
+      "repo": "jmespath_jmespath.py",
+      "ok": true,
+      "regime": "python3->java",
+      "source_root": ".",
+      "stats": {
+        "fragments": 206,
+        "by_kind": {
+          "class": 19,
+          "function": 32,
+          "method": 148,
+          "module_header": 7
+        },
+        "edges": 656,
+        "steps": 192,
+        "waves": 11,
+        "cycles": 13,
+        "largest_cycle": 3,
+        "loc": 1411,
+        "fragments_with_hazards": 10,
+        "fragments_with_target_hints": 29,
+        "unconfirmed_edges_dropped": 14,
+        "flags": {
+          "in_cycle": 27,
+          "recursive": 1
+        },
+        "seconds": 55.6
+      },
+      "validation": "10/10",
+      "failed_checks": [],
+      "graph_quality": {
+        "edge_evidence": "272/272",
+        "call_recall": "41/41"
+      },
+      "tool_failures": [],
+      "bundle": "layer0/20261009-192948-jmespath_jmespath.py/jmespath_jmespath.py"
+    }
+  ]
+}

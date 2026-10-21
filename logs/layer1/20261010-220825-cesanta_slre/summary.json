@@ -1,0 +1,74 @@
+{
+  "kind": "migrate",
+  "max_human_retries": 2,
+  "repos": [
+    {
+      "repo": "cesanta_slre",
+      "ok": true,
+      "regime": "c->rust",
+      "assembly": "compose",
+      "layer2": "agents",
+      "bundle": "layer0/20261010-175358-cesanta_slre/cesanta_slre",
+      "units": {
+        "escalated": 1,
+        "migrated": 8,
+        "out_of_scope": 12
+      },
+      "fragments": {
+        "escalated": 1,
+        "migrated": 8,
+        "out_of_scope": 13
+      },
+      "counters": {
+        "invocations": 11,
+        "retries": 2,
+        "invalid_verdicts": 0,
+        "escalated_units": 1,
+        "blocked_units": 0,
+        "vendored_units": 0
+      },
+      "contract": "10/10",
+      "failed_checks": [],
+      "build": {
+        "ok": true,
+        "tool": "rust",
+        "files": 3,
+        "errors": 0
+      },
+      "report_summary": {
+        "source": "llm",
+        "model": "openai/gpt-oss-20b",
+        "attempts": 2
+      },
+      "out": "layer1/20261010-220825-cesanta_slre/cesanta_slre",
+      "scope": [
+        "slre.hextoi",
+        "slre.get_op_len",
+        "slre.is_quantifier",
+        "slre.is_metacharacter"
+      ],
+      "layer2_evidence": {
+        "units_verified_by_tests": 3,
+        "units_compiled_only": 5,
+        "differential_tests": 24,
+        "tests_equivalent": 24,
+        "units_repaired": 1,
+        "llm_tokens": {
+          "analyzer": 20693,
+          "repair": 36899,
+          "testgen": 8591,
+          "translator": 34879,
+          "verdict": 8425
+        },
+        "llm_calls": {
+          "analyzer": 10,
+          "repair": 10,
+          "testgen": 7,
+          "translator": 12,
+          "verdict": 5
+        },
+        "mcp_calls": 85
+      }
+    }
+  ]
+}
